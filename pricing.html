@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — DVN Security Architecture</title>
+  <meta name="description" content="Starter, Professional, Premium, and Enterprise engagement tiers.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+  <main>
+    <section class="page-header">
+      <div class="container section-heading center">
+        <span class="eyebrow">Pricing</span>
+        <h2>Engagement tiers built for every stage</h2>
+        <p>Every package is scoped clearly up front — no surprise invoices, no vague retainers.</p>
+      </div>
+    </section>
+    <section class="section section-sm">
+      <div class="container card-grid card-grid-4" id="pricing-list"></div>
+      <p style="margin-top:2.5rem;text-align:center;font-size:0.75rem;color:var(--muted-foreground)">Pricing reflects standard engagement rates and is confirmed on a discovery call.</p>
+    </section>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="script.js"></script>
+  <script>
+    const PACKAGE_FEATURES = {
+      starter: ["1-week turnaround", "Cloud + identity quick-scan", "Executive-ready snapshot report", "30-minute walkthrough call", "Prioritized top-5 risk list"],
+      professional: ["Everything in Starter", "Full architecture + cloud + identity review", "SOC & detection coverage assessment", "30/60/90 day remediation roadmap", "Executive presentation to leadership", "2 weeks of post-engagement support"],
+      premium: ["Everything in Professional", "Monthly architecture reviews", "Vendor & tooling evaluation", "Board and executive reporting", "Direct Slack/email access", "Quarterly roadmap refresh"],
+      enterprise: ["C2C / 1099 engagement models", "Flexible scope and duration", "Enterprise procurement & compliance friendly", "Dedicated engagement lead", "Custom SOW and reporting cadence"]
+    };
+    document.getElementById("pricing-list").innerHTML = PACKAGES.map(p => `
+      <div class="card ${p.featured ? "featured" : ""}" style="display:flex;flex-direction:column">
+        ${p.featured ? '<span class="badge">Most popular</span>' : '<div style="height:1.25rem"></div>'}
+        <h3 style="font-size:1.125rem;margin-top:0.5rem">${p.name}</h3>
+        <p>${p.tagline}</p>
+        <div class="card-price" style="font-size:1.875rem;margin-top:1rem">${p.priceRange}</div>
+        <div class="card-billing">${p.billingNote}</div>
+        <ul style="margin-top:1.5rem;flex:1">${PACKAGE_FEATURES[p.slug].map(f => `<li style="display:flex;gap:0.5rem;font-size:0.875rem;color:var(--muted-foreground);margin-top:0.625rem"><span class="check-icon">✓</span>${f}</li>`).join("")}</ul>
+        <a href="book.html" class="btn ${p.featured ? "btn-primary" : "btn-outline"} btn-block" style="margin-top:1.5rem">${p.ctaLabel}</a>
+      </div>`).join("");
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — DVN Security Architecture</title>
+  <meta name="description" content="Security architecture, cloud, identity, SOC, and AI readiness consulting services.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+  <main>
+    <section class="page-header">
+      <div class="container section-heading center">
+        <span class="eyebrow">Service Catalog</span>
+        <h2>Security consulting built around outcomes, not hours</h2>
+        <p>Every service is scoped with a clear timeline, clear deliverables, and a clear next step.</p>
+      </div>
+    </section>
+    <section class="section section-sm">
+      <div class="container card-grid card-grid-2" id="services-list"></div>
+    </section>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="script.js"></script>
+  <script>
+    const SERVICE_DETAILS = {
+      "security-architecture-review": {
+        description: "A comprehensive evaluation of your current security architecture — network segmentation, identity boundaries, data flows, and control coverage — mapped against modern threat models and your business risk tolerance.",
+        outcomes: ["Clear picture of architectural strengths and gaps", "Prioritized remediation roadmap", "Executive-ready findings deck"],
+        deliverables: ["Architecture diagram review", "Gap analysis report", "Prioritized roadmap (30/60/90)", "Executive summary presentation"],
+        idealFor: "Series A-C startups · Companies pre-SOC 2 · Post-incident organizations"
+      },
+      "cloud-security-assessment": {
+        description: "A hands-on assessment of your cloud environment covering identity and access management, network exposure, storage and data protection, logging coverage, and misconfiguration risk across AWS, Azure, or GCP.",
+        outcomes: ["Ranked list of cloud misconfigurations", "IAM least-privilege recommendations", "Cloud security roadmap aligned to CIS benchmarks"],
+        deliverables: ["Cloud configuration audit", "IAM policy review", "Risk-ranked findings report", "Remediation backlog"],
+        idealFor: "Cloud-native teams · Post-migration environments · Multi-account AWS/Azure orgs"
+      },
+      "identity-access-review": {
+        description: "A focused review of your identity fabric — SSO, MFA enforcement, privileged access management, joiner/mover/leaver processes, and conditional access — to close the identity gaps attackers exploit most.",
+        outcomes: ["MFA and conditional access coverage map", "Privileged access risk findings", "Identity lifecycle process recommendations"],
+        deliverables: ["Identity provider configuration review", "Privileged access audit", "Access lifecycle SOP recommendations"],
+        idealFor: "Hybrid workforces · Regulated industries · Recent M&A identity consolidation"
+      },
+      "soc-detection-review": {
+        description: "An evaluation of your SOC operations, detection engineering, and incident response workflows — including log source coverage, alert fidelity, escalation paths, and tabletop-tested response plans.",
+        outcomes: ["Detection coverage mapped to MITRE ATT&CK", "Alert quality and noise reduction plan", "Tested incident response runbook"],
+        deliverables: ["Detection coverage heatmap", "SIEM/EDR configuration review", "Incident response tabletop exercise"],
+        idealFor: "Teams with existing SOC/MSSP · Growing security teams · Post-incident maturity building"
+      },
+      "ai-security-readiness": {
+        description: "A practical assessment of AI tool usage across your organization — data exposure risk, model access controls, shadow AI usage, and policy gaps — with a roadmap for using AI safely without slowing teams down.",
+        outcomes: ["Inventory of AI tools and data exposure risk", "AI usage policy recommendations", "Safe-adoption roadmap for AI-powered workflows"],
+        deliverables: ["AI tool and data flow inventory", "Risk-tiered findings report", "AI security policy starter kit"],
+        idealFor: "Teams adopting AI tools quickly · Legal/compliance-sensitive orgs · Engineering orgs using LLM APIs"
+      },
+      "fractional-security-architect": {
+        description: "Embedded, ongoing security architecture leadership — architecture reviews, roadmap ownership, vendor evaluation, board and exec reporting, and hands-on guidance for your engineering team — delivered on a fractional retainer.",
+        outcomes: ["Continuous architecture and risk oversight", "Executive and board-ready reporting cadence", "Security roadmap tied to business priorities"],
+        deliverables: ["Monthly architecture reviews", "Quarterly roadmap updates", "Ad hoc design reviews and vendor evaluations", "Executive reporting cadence"],
+        idealFor: "Pre-CISO stage companies · Companies needing part-time security leadership · PE-backed portfolio companies"
+      }
+    };
+    document.getElementById("services-list").innerHTML = SERVICES.map(s => {
+      const d = SERVICE_DETAILS[s.slug];
+      return `<article class="card service-card" id="${s.slug}">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div class="card-icon accent">${s.icon}</div>
+          <span class="badge badge-outline">${s.timeline}</span>
+        </div>
+        <h3 style="font-size:1.125rem;margin-top:1rem">${s.name}</h3>
+        <p>${d.description}</p>
+        <p style="margin-top:1rem;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)">Key outcomes</p>
+        <ul style="margin-top:0.5rem">${d.outcomes.map(o => `<li style="display:flex;gap:0.5rem;font-size:0.875rem;margin-top:0.5rem"><span class="check-icon">✓</span>${o}</li>`).join("")}</ul>
+        <p style="margin-top:1rem;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)">Deliverables</p>
+        <div class="deliverable-tags">${d.deliverables.map(x => `<span>${x}</span>`).join("")}</div>
+        <p style="margin-top:1rem;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)">Ideal for</p>
+        <p style="font-size:0.875rem;margin-top:0.25rem;color:var(--muted-foreground)">${d.idealFor}</p>
+        <div style="margin-top:1.5rem;display:flex;gap:0.75rem;flex-wrap:wrap">
+          <a href="book.html" class="btn btn-primary btn-sm">Book a Call →</a>
+          <a href="pricing.html" class="btn btn-outline btn-sm">View Pricing</a>
+        </div>
+      </article>`;
+    }).join("");
+  </script>
+</body>
+</html>

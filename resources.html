@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources — DVN Security Architecture</title>
+  <meta name="description" content="Free security checklists and templates: cloud, identity, incident response, AI policy, and risk register.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+  <main>
+    <section class="page-header">
+      <div class="container section-heading center">
+        <span class="eyebrow">Free Resources</span>
+        <h2>Checklists and templates you can use today</h2>
+        <p>Practical, no-fluff resources pulled directly from real consulting engagements.</p>
+      </div>
+    </section>
+    <section class="section section-sm">
+      <div class="container card-grid card-grid-3" id="resources-list"></div>
+    </section>
+
+    <div id="resource-modal" class="mobile-nav hidden">
+      <div class="mobile-nav-panel" style="width:min(100%,28rem);left:50%;top:50%;right:auto;bottom:auto;transform:translate(-50%,-50%);border:1px solid var(--border);border-radius:calc(var(--radius)+4px)">
+        <button class="mobile-nav-close" id="modal-close" aria-label="Close">×</button>
+        <h3 id="modal-title" style="font-size:1.125rem;font-weight:600;padding-right:2rem"></h3>
+        <p id="modal-desc" style="margin-top:0.5rem;font-size:0.875rem;color:var(--muted-foreground)"></p>
+        <form id="resource-form" style="margin-top:1.5rem">
+          <div class="form-group"><label for="r-name">Name</label><input id="r-name" name="name" required></div>
+          <div class="form-group"><label for="r-email">Work email</label><input id="r-email" name="email" type="email" required></div>
+          <div class="form-group"><label for="r-company">Company</label><input id="r-company" name="company" required></div>
+          <button type="submit" class="btn btn-primary btn-block">Get the Download</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="script.js"></script>
+  <script>
+    const RESOURCES = [
+      { slug: "cloud-security-checklist", title: "Cloud Security Checklist", description: "A 40-point checklist covering IAM, network, storage, and logging misconfigurations across AWS, Azure, and GCP.", format: "PDF", file: "resources/cloud-security-checklist.pdf" },
+      { slug: "identity-access-review-checklist", title: "Identity & Access Review Checklist", description: "Evaluate MFA coverage, privileged access, conditional access, and lifecycle controls in one pass.", format: "PDF", file: "resources/identity-access-review-checklist.pdf" },
+      { slug: "incident-response-checklist", title: "Incident Response Checklist", description: "A first-72-hours checklist for detecting, containing, and communicating during a security incident.", format: "PDF", file: "resources/incident-response-checklist.pdf" },
+      { slug: "ai-security-policy-starter-kit", title: "AI Security Policy Starter Kit", description: "A ready-to-adapt policy template for safe, governed AI tool usage inside your organization.", format: "DOCX", file: "resources/ai-security-policy-starter-kit.docx" },
+      { slug: "executive-risk-register-template", title: "Executive Risk Register Template", description: "A board-ready risk register spreadsheet with built-in severity and likelihood scoring.", format: "XLSX", file: "resources/executive-risk-register-template.xlsx" }
+    ];
+    let activeResource = null;
+    document.getElementById("resources-list").innerHTML = RESOURCES.map(r => `
+      <div class="card" style="display:flex;flex-direction:column;justify-content:space-between">
+        <div>
+          <div class="card-icon accent">📄</div>
+          <h3 style="margin-top:0.75rem">${r.title}</h3>
+          <p>${r.description}</p>
+        </div>
+        <div style="margin-top:1.5rem;display:flex;justify-content:space-between;align-items:center">
+          <span class="badge badge-outline">${r.format}</span>
+          <button class="btn btn-outline btn-sm" data-slug="${r.slug}">Download</button>
+        </div>
+      </div>`).join("");
+    document.querySelectorAll("[data-slug]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        activeResource = RESOURCES.find(r => r.slug === btn.dataset.slug);
+        document.getElementById("modal-title").textContent = activeResource.title;
+        document.getElementById("modal-desc").textContent = "Enter your details — your download will start immediately.";
+        document.getElementById("resource-modal").classList.remove("hidden");
+        document.getElementById("resource-modal").classList.add("open");
+      });
+    });
+    document.getElementById("modal-close").addEventListener("click", () => {
+      document.getElementById("resource-modal").classList.remove("open");
+      document.getElementById("resource-modal").classList.add("hidden");
+    });
+    document.getElementById("resource-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const subject = encodeURIComponent(`Resource download: ${activeResource.title}`);
+      const body = encodeURIComponent(`Name: ${fd.get("name")}\nEmail: ${fd.get("email")}\nCompany: ${fd.get("company")}\nResource: ${activeResource.slug}`);
+      window.open(`mailto:hello@dvnsecurity.com?subject=${subject}&body=${body}`);
+      const a = document.createElement("a");
+      a.href = activeResource.file;
+      a.download = "";
+      a.click();
+      document.getElementById("resource-modal").classList.remove("open");
+      document.getElementById("resource-modal").classList.add("hidden");
+    });
+  </script>
+</body>
+</html>

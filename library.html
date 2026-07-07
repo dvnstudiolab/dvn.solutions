@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Library — DVN Security Architecture</title>
+  <meta name="description" content="A knowledge graph of cybersecurity, identity, cloud, AI, and engineering articles.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+  <main>
+    <section class="page-header">
+      <div class="container section-heading center">
+        <span class="eyebrow">The Library</span>
+        <h2>A knowledge graph, not a blog</h2>
+        <p>239 interconnected articles across 19 pillars — cybersecurity, identity, cloud, AI, engineering, and the broader technical and business thinking behind them. 78 published so far.</p>
+      </div>
+    </section>
+    <section class="section section-sm">
+      <div class="container card-grid card-grid-3" id="library-pillars"></div>
+    </section>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="script.js"></script>
+  <script>
+    const PILLARS = [
+      { slug: "cybersecurity", title: "Cybersecurity Fundamentals", description: "Core concepts every security program is built on.", icon: "🛡️", articles: 18, written: 6 },
+      { slug: "identity", title: "Identity (IAM / ICAM)", description: "The control plane that determines who can do what.", icon: "🔑", articles: 16, written: 5 },
+      { slug: "grc", title: "Governance, Risk & Compliance", description: "Risk decisions, policy, and board-ready reporting.", icon: "⚖️", articles: 14, written: 4 },
+      { slug: "cloud-security", title: "Cloud Security", description: "Securing AWS, Azure, GCP, and multi-cloud environments.", icon: "☁️", articles: 20, written: 7 },
+      { slug: "ai", title: "Artificial Intelligence", description: "How AI works and what it takes to govern and secure it.", icon: "🧠", articles: 15, written: 5 },
+      { slug: "rag", title: "Retrieval-Augmented Generation", description: "Vector databases, embeddings, and grounded LLMs.", icon: "🗄️", articles: 10, written: 3 },
+      { slug: "soc-purple-team", title: "SOC & Purple Team", description: "Detection, threat hunting, and operational discipline.", icon: "📡", articles: 14, written: 4 },
+      { slug: "vulnerability-management", title: "Vulnerability Management", description: "Finding, prioritizing, and closing exposure.", icon: "🐛", articles: 12, written: 4 },
+      { slug: "networking", title: "Networking", description: "The architecture everything else runs on top of.", icon: "🌐", articles: 11, written: 3 },
+      { slug: "offensive-security", title: "Offensive Security", description: "Ethical hacking and adversary simulation.", icon: "⚔️", articles: 13, written: 4 },
+      { slug: "devsecops", title: "DevSecOps", description: "Security built into the delivery pipeline.", icon: "🔀", articles: 12, written: 4 },
+      { slug: "linux-engineering", title: "Linux & Engineering", description: "Hands-on skills behind effective security work.", icon: "💻", articles: 10, written: 3 },
+      { slug: "data-engineering", title: "Data Engineering", description: "The data layer underneath security and AI systems.", icon: "📊", articles: 11, written: 3 },
+      { slug: "architecture", title: "Architecture", description: "Security, cloud, identity, and AI as connected disciplines.", icon: "🧭", articles: 14, written: 5 },
+      { slug: "digital-business", title: "Digital Business", description: "Technology strategy for decision-makers.", icon: "🏢", articles: 10, written: 3 },
+      { slug: "marketing-growth", title: "Marketing & Growth", description: "How technical businesses find and keep customers.", icon: "📣", articles: 9, written: 2 },
+      { slug: "emerging-technology", title: "Emerging Technology", description: "Technologies that will define the next decade.", icon: "🚀", articles: 10, written: 3 },
+      { slug: "finance-strategy", title: "Finance & Strategy", description: "Economics of technology and security decisions.", icon: "📈", articles: 9, written: 2 },
+      { slug: "steam", title: "S.T.E.A.M.", description: "Science, technology, engineering, arts, and mathematics.", icon: "⚛️", articles: 11, written: 3 }
+    ];
+    document.getElementById("library-pillars").innerHTML = PILLARS.map(p => `
+      <div class="card">
+        <div class="card-icon accent">${p.icon}</div>
+        <h3 style="margin-top:0.75rem">${p.title}</h3>
+        <p>${p.description}</p>
+        <p style="margin-top:1rem;font-size:0.75rem;color:var(--muted-foreground)">${p.written} published · ${p.articles} total articles mapped</p>
+        <p style="margin-top:0.75rem;font-size:0.8125rem;color:var(--muted-foreground);font-style:italic">Full article pages coming soon — browse the full library in the Next.js app.</p>
+      </div>`).join("");
+  </script>
+</body>
+</html>

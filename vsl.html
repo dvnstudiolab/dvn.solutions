@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch: How We Find Security Gaps Fast — DVN Security Architecture</title>
+  <meta name="description" content="Watch the video, answer 3 quick questions, and see if a discovery call is the right next step.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+  <main>
+    <section class="page-header">
+      <div class="container section-heading center">
+        <span class="eyebrow">Video + Qualifying Questions</span>
+        <h2>See how the process works, then let's see if it's a fit</h2>
+      </div>
+    </section>
+    <section class="section section-sm">
+      <div class="container" style="max-width:48rem" id="vsl-app">
+        <button type="button" id="video-btn" style="width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:calc(var(--radius)+4px);background:color-mix(in srgb,var(--secondary) 40%,transparent);cursor:pointer;color:var(--foreground);font-family:inherit">
+          <div style="text-align:center">
+            <div style="font-size:3rem;margin-bottom:0.75rem">▶️</div>
+            <p style="font-weight:500">Watch: How We Find Security Gaps Fast</p>
+          </div>
+        </button>
+        <form id="vsl-form" style="margin-top:2.5rem"></form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="script.js"></script>
+  <script>
+    const VSL_QUESTIONS = [
+      { id: "concern", question: "What's your biggest security concern right now?", options: ["We don't know where our biggest risks are", "We're preparing for a compliance requirement (SOC 2, HIPAA, etc.)", "Our cloud/identity setup has grown faster than our security controls", "We're adopting AI tools and worried about data exposure"] },
+      { id: "timeline", question: "How soon are you looking to act?", options: ["Immediately", "Within 30 days", "Within this quarter", "Just researching"] },
+      { id: "budget", question: "What's your rough budget range for this?", options: ["Under $2,500", "$2,500 - $10,000", "$10,000 - $25,000", "Ongoing monthly retainer"] }
+    ];
+    const answers = {};
+    document.getElementById("video-btn").addEventListener("click", function() {
+      this.innerHTML = '<p style="color:var(--muted-foreground);font-size:0.875rem">Video placeholder — connect your hosted VSL (Wistia/Vimeo/Loom) here.</p>';
+    });
+    function renderForm() {
+      document.getElementById("vsl-form").innerHTML = VSL_QUESTIONS.map((q, i) => `
+        <div class="card" style="margin-bottom:1.5rem">
+          <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;color:var(--accent)">Question ${i + 1}</p>
+          <h3 style="margin-top:0.5rem;font-size:1rem;font-weight:500">${q.question}</h3>
+          <div class="radio-group">${q.options.map(o => `
+            <label class="radio-option ${answers[q.id] === o ? "selected" : ""}">
+              <input type="radio" name="${q.id}" value="${o}" ${answers[q.id] === o ? "checked" : ""}> ${o}
+            </label>`).join("")}</div>
+        </div>`).join("") + `
+        <div class="card">
+          <h3 style="font-size:1rem;font-weight:500">Almost there</h3>
+          <p style="margin-top:0.25rem;font-size:0.875rem;color:var(--muted-foreground)">Tell us where to send your recommendation.</p>
+          <div style="margin-top:1rem;display:grid;gap:1rem">
+            <div class="form-group"><label for="vsl-name">Name</label><input id="vsl-name" required></div>
+            <div class="form-group"><label for="vsl-email">Work email</label><input id="vsl-email" type="email" required></div>
+            <div class="form-group"><label for="vsl-company">Company</label><input id="vsl-company" required></div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:1.5rem">
+          <button type="submit" class="btn btn-primary btn-lg" id="vsl-submit" disabled>See If We're a Fit</button>
+        </div>`;
+      document.querySelectorAll("#vsl-form input[type=radio]").forEach(input => {
+        input.addEventListener("change", () => {
+          answers[input.name] = input.value;
+          renderForm();
+          checkReady();
+        });
+      });
+      document.getElementById("vsl-form").onsubmit = (e) => {
+        e.preventDefault();
+        const name = document.getElementById("vsl-name").value;
+        const email = document.getElementById("vsl-email").value;
+        const company = document.getElementById("vsl-company").value;
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCompany: ${company}\nAnswers: ${JSON.stringify(answers, null, 2)}`);
+        window.location.href = `mailto:hello@dvnsecurity.com?subject=${encodeURIComponent("VSL lead")}&body=${body}`;
+        document.getElementById("vsl-app").innerHTML = `
+          <div class="card" style="text-align:center;border-color:color-mix(in srgb,var(--accent) 40%,transparent)">
+            <h3 style="font-size:1.25rem">You're a great fit for a discovery call.</h3>
+            <p style="margin-top:0.5rem;color:var(--muted-foreground)">Based on your answers, let's find time to talk through your environment.</p>
+            <a href="book.html" class="btn btn-primary btn-lg" style="margin-top:1.5rem">Book Your Call Now →</a>
+          </div>`;
+      };
+      checkReady();
+    }
+    function checkReady() {
+      const ready = VSL_QUESTIONS.every(q => answers[q.id]);
+      const btn = document.getElementById("vsl-submit");
+      if (btn) btn.disabled = !ready;
+    }
+    renderForm();
+  </script>
+</body>
+</html>
