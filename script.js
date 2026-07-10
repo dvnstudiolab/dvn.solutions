@@ -2,7 +2,8 @@
 
 const SITE = {
   name: "DVN Solutions",
-  tagline: "Digital Infrastructure as a Service",
+  tagline: "Digital · Virtual · Network",
+  motto: "Digital is what you create. Virtual is where it runs. Network is how it connects.",
   email: "hello@dvnsecurity.com",
 };
 
@@ -16,8 +17,9 @@ const NAV = [
 
 const FOOTER_COLUMNS = [
   {
-    title: "Lifecycle",
+    title: "DVN",
     links: [
+      { label: "About", href: "about.html" },
       { label: "Build", href: "services.html#build" },
       { label: "Deploy", href: "services.html#deploy" },
       { label: "Secure", href: "services.html#secure" },
@@ -51,42 +53,84 @@ const LIFECYCLE_PHASES = [
   {
     slug: "build",
     name: "Build",
-    summary: "Websites, applications, cloud environments, AI agents, CRM, branding, and identity systems.",
+    summary: "Create digital assets — brand, websites, software, AI, and data.",
     icon: "🏗️",
     timeline: "Project-based",
-    capabilities: ["Websites", "Branding", "CRM", "AI Apps", "Internal Tools"],
+    capabilities: ["Brand", "Websites", "Software", "AI", "Data"],
   },
   {
     slug: "deploy",
     name: "Deploy",
-    summary: "Hosting, cloud, CI/CD, Kubernetes, virtualization, networking, domains, and email.",
+    summary: "Bring digital systems online across cloud, containers, networking, and CI/CD.",
     icon: "🚀",
     timeline: "Days to weeks",
-    capabilities: ["Cloud", "Hosting", "Networking", "CI/CD", "Containers"],
+    capabilities: ["Cloud", "Containers", "Networking", "CI/CD", "Edge"],
   },
   {
     slug: "secure",
     name: "Secure",
-    summary: "IAM, GRC, vulnerability management, penetration testing, monitoring, and compliance.",
+    summary: "Protect trust across identity, GRC, vulnerability management, and detection.",
     icon: "🛡️",
     timeline: "1–4 weeks",
-    capabilities: ["GRC", "IAM", "Vulnerability Management", "Pen Testing", "SOC"],
+    capabilities: ["IAM", "GRC", "Vuln Mgmt", "Pen Testing", "SOC"],
   },
   {
     slug: "optimize",
     name: "Optimize",
-    summary: "SEO, analytics, cloud cost optimization, performance tuning, and business intelligence.",
+    summary: "Improve continuously — SEO, performance, analytics, cost, and user experience.",
     icon: "📈",
     timeline: "Ongoing",
-    capabilities: ["SEO", "Performance", "Analytics", "Cost Optimization", "User Experience"],
+    capabilities: ["SEO", "Performance", "Analytics", "Cost", "UX"],
   },
   {
     slug: "automate",
     name: "Automate",
-    summary: "AI agents, workflows, CRM automation, marketing automation, and internal operations.",
+    summary: "Scale intelligently with AI agents, workflows, and business operations automation.",
     icon: "⚡",
     timeline: "Ongoing",
-    capabilities: ["AI Agents", "Workflow Automation", "Marketing Automation", "Business Process Automation", "Reporting"],
+    capabilities: ["AI Agents", "Workflows", "Marketing", "Reporting", "Operations"],
+  },
+];
+
+const DVN_PILLARS = [
+  {
+    letter: "D",
+    name: "Digital",
+    tagline: "What you create.",
+    summary: "The digital representation of your business — everything that creates, communicates, stores, or transforms information.",
+    icon: "💎",
+    groups: [
+      { label: "Brand", items: ["Brand Identity", "Design Systems", "UI/UX", "Motion Graphics"] },
+      { label: "Marketing", items: ["Websites", "SEO", "CRM", "Marketing Automation", "Analytics"] },
+      { label: "Software", items: ["Web Apps", "Mobile Apps", "SaaS", "APIs", "Internal Tools"] },
+      { label: "Data & AI", items: ["Databases", "Business Intelligence", "AI Agents", "RAG Systems", "Workflow Automation"] },
+    ],
+  },
+  {
+    letter: "V",
+    name: "Virtual",
+    tagline: "Where it operates.",
+    summary: "The environments where digital systems live — scalable, repeatable, resilient, and automated through abstraction.",
+    icon: "☁️",
+    groups: [
+      { label: "Cloud", items: ["AWS", "Azure", "GCP", "OCI"] },
+      { label: "Virtualization", items: ["VMware", "Hyper-V", "Proxmox", "Containers"] },
+      { label: "Networking", items: ["VPC", "VPN", "SD-WAN", "Zero Trust", "Service Mesh"] },
+      { label: "DevOps", items: ["Git", "CI/CD", "Terraform", "Ansible", "GitHub Actions"] },
+    ],
+  },
+  {
+    letter: "N",
+    name: "Network",
+    tagline: "How everything connects.",
+    summary: "Everything valuable moves through networks — of systems, trust, people, knowledge, and opportunity.",
+    icon: "🔗",
+    groups: [
+      { label: "Security Networks", items: ["Identity", "Authentication", "PKI", "Zero Trust", "PAM"] },
+      { label: "Business Networks", items: ["Customers", "Vendors", "Partners", "Supply Chains"] },
+      { label: "Information Networks", items: ["Wikis", "Knowledge Graphs", "RAG", "Documentation"] },
+      { label: "AI Networks", items: ["Multi-Agent Systems", "MCP Servers", "APIs", "Event Buses"] },
+    ],
   },
 ];
 
@@ -95,8 +139,8 @@ const SERVICES = LIFECYCLE_PHASES;
 const PACKAGES = [
   { slug: "starter", name: "Starter", tagline: "Infrastructure Snapshot", priceRange: "$1,500 – $2,500", billingNote: "one-time", ctaLabel: "Get the Snapshot", featured: false },
   { slug: "professional", name: "Professional", tagline: "Lifecycle Phase Engagement", priceRange: "$8,000 – $25,000", billingNote: "per phase", ctaLabel: "Book a Discovery Call", featured: true },
-  { slug: "premium", name: "Premium", tagline: "DIaaS Partner Retainer", priceRange: "$6,000 – $12,000", billingNote: "per month, retainer", ctaLabel: "Talk to Us", featured: false },
-  { slug: "enterprise", name: "Enterprise", tagline: "Full-Stack Infrastructure Program", priceRange: "Custom", billingNote: "scoped by engagement", ctaLabel: "Request a Proposal", featured: false },
+  { slug: "premium", name: "Premium", tagline: "CI/CD Retainer Partner", priceRange: "$6,000 – $12,000", billingNote: "per month, retainer", ctaLabel: "Talk to Us", featured: false },
+  { slug: "enterprise", name: "Enterprise", tagline: "Full-Stack DVN Program", priceRange: "Custom", billingNote: "scoped by engagement", ctaLabel: "Request a Proposal", featured: false },
 ];
 
 const SCORECARD_QUESTIONS = [
@@ -187,7 +231,7 @@ function renderFooter() {
             <img src="assets/dvn-logo.png" alt="" width="32" height="32">
             <span>${SITE.name}</span>
           </a>
-          <p>Your AI-native digital infrastructure partner — we design, deploy, secure, optimize, and automate the complete technology stack that powers your business.</p>
+          <p>${SITE.motto} One partner across all three — build, deploy, secure, optimize, and automate.</p>
         </div>
         ${FOOTER_COLUMNS.map(
           (col) => `
@@ -199,7 +243,7 @@ function renderFooter() {
       </div>
       <div class="footer-bottom">
         <p>&copy; ${new Date().getFullYear()} ${SITE.name}. All rights reserved.</p>
-        <p>Build → Deploy → Secure → Optimize → Automate. Digital infrastructure, managed as one integrated lifecycle.</p>
+        <p>Digital × Virtual × Network = Business Capability. Build → Deploy → Secure → Optimize → Automate.</p>
       </div>
     </div>`;
 }

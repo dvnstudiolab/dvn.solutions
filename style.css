@@ -631,3 +631,48 @@ main { flex: 1; }
   line-height: 1.6;
 }
 #internships { scroll-margin-top: 5rem; }
+
+/* DVN pillars & framework */
+.dvn-quote {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--accent);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.dvn-pillar {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 5rem;
+}
+.dvn-pillar:last-child { margin-bottom: 0; }
+.dvn-pillar-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+.pillar-letter {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  min-width: 3rem;
+}
+.pillar-letter-sm {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+}
+.dvn-pillar-header h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+.dvn-pillar-header p {
+  margin-top: 0.5rem;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}

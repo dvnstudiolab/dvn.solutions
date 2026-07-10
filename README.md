@@ -1,6 +1,6 @@
-# DVN Solutions — Digital Infrastructure as a Service
+# DVN Solutions — Digital · Virtual · Network
 
-Static marketing site for [DVN Solutions](https://github.com/dvnstudiolab/dvn.solutions) — an AI-native digital infrastructure firm offering Build → Deploy → Secure → Optimize → Automate as a service.
+Static marketing site for [DVN Solutions](https://github.com/dvnstudiolab/dvn.solutions) — Digital · Virtual · Network.
 
 ## Files
 

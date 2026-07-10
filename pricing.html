@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pricing — DVN Solutions</title>
-  <meta name="description" content="Starter, Professional, Premium, and Enterprise DIaaS engagement tiers.">
+  <meta name="description" content="Engagement tiers for unifying Digital, Virtual, and Network — from snapshot to CI/CD retainer.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,9 +12,9 @@
   <main>
     <section class="page-header">
       <div class="container section-heading center">
-        <span class="eyebrow">Pricing</span>
-        <h2>Engagement tiers for every lifecycle stage</h2>
-        <p>From a one-week infrastructure snapshot to a full DIaaS retainer — every package is scoped clearly up front.</p>
+        <span class="eyebrow">Digital · Virtual · Network</span>
+        <h2>Engagement tiers across all three dimensions</h2>
+        <p>From a one-week maturity snapshot to a CI/CD retainer — scoped sprints that continuously integrate Digital, Virtual, and Network.</p>
       </div>
     </section>
     <section class="section section-sm">
@@ -28,8 +28,8 @@
     const PACKAGE_FEATURES = {
       starter: ["1-week turnaround", "Digital stack quick-scan", "Executive-ready snapshot report", "30-minute walkthrough call", "Prioritized top-5 action list"],
       professional: ["Everything in Starter", "Full lifecycle phase engagement (Build, Deploy, Secure, Optimize, or Automate)", "Architecture, cloud, and security review", "30/60/90 day roadmap", "Executive presentation to leadership", "2 weeks of post-engagement support"],
-      premium: ["Everything in Professional", "Ongoing DIaaS partner across multiple phases", "Monthly infrastructure reviews", "Vendor & tooling evaluation", "Executive reporting cadence", "Direct Slack/email access", "Quarterly roadmap refresh"],
-      enterprise: ["Full-stack infrastructure program", "Flexible scope across all lifecycle phases", "Enterprise procurement & compliance friendly", "Dedicated engagement lead", "Custom SOW and reporting cadence"]
+      premium: ["Everything in Professional", "Ongoing CI/CD retainer across Digital, Virtual, and Network", "Monthly reviews across all three dimensions", "Vendor & tooling evaluation", "Executive reporting cadence", "Direct Slack/email access", "Quarterly roadmap refresh"],
+      enterprise: ["Full-stack DVN program", "Flexible scope across all dimensions and lifecycle phases", "Enterprise procurement & compliance friendly", "Dedicated engagement lead", "Custom SOW and reporting cadence"]
     };
     document.getElementById("pricing-list").innerHTML = PACKAGES.map(p => `
       <div class="card ${p.featured ? "featured" : ""}" style="display:flex;flex-direction:column">
