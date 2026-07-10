@@ -10,7 +10,7 @@ const NAV = [
   { label: "Services", href: "services.html" },
   { label: "Pricing", href: "pricing.html" },
   { label: "Projects", href: "projects.html" },
-  { label: "Library", href: "library.html" },
+  { label: "Careers", href: "careers.html" },
   { label: "About", href: "about.html" },
 ];
 
@@ -34,6 +34,7 @@ const FOOTER_COLUMNS = [
       { label: "Infrastructure Snapshot", href: "security-snapshot.html" },
       { label: "Downloadable Resources", href: "resources.html" },
       { label: "Projects & Case Studies", href: "projects.html" },
+      { label: "Careers", href: "careers.html" },
       { label: "About", href: "about.html" },
     ],
   },

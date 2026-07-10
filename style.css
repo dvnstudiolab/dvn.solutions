@@ -571,3 +571,54 @@ main { flex: 1; }
 
 .page-header { padding: 4rem 0 2rem; text-align: center; }
 @media (min-width: 640px) { .page-header { padding-top: 6rem; } }
+
+/* Careers */
+.careers-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.careers-nav-link {
+  font-size: 0.8125rem;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--muted-foreground);
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.careers-nav-link:hover {
+  color: var(--foreground);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.careers-dept {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 5rem;
+}
+.careers-dept:last-child { margin-bottom: 0; }
+.careers-dept-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.careers-dept-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  flex: 1;
+}
+.role-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.role-card p {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+#internships { scroll-margin-top: 5rem; }

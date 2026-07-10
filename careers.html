@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers — DVN Solutions</title>
+  <meta name="description" content="Join DVN Solutions — build, deploy, secure, optimize, and automate digital infrastructure alongside specialists in AI, cloud, cybersecurity, engineering, and operations.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+  <main>
+    <section class="hero" style="padding-bottom:3rem">
+      <div class="container hero-content">
+        <span class="eyebrow">Careers at DVN</span>
+        <h1>Build the infrastructure<span class="accent"> behind modern businesses.</span></h1>
+        <p>At DVN, we design, deploy, secure, optimize, and automate digital ecosystems. Our teams work across AI, cloud, cybersecurity, software engineering, infrastructure, digital marketing, and business operations to help organizations modernize how they operate.</p>
+        <p style="margin-top:1rem;color:var(--muted-foreground)">Whether you're writing detection rules, building AI agents, deploying Kubernetes clusters, optimizing SEO, or conducting penetration tests, you'll work alongside specialists across disciplines to solve real business problems.</p>
+        <div class="hero-actions">
+          <a href="#open-roles" class="btn btn-primary btn-lg">View Open Roles →</a>
+          <a href="#internships" class="btn btn-outline btn-lg">Internship Program</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="open-roles">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Open Roles</span>
+          <h2>Work across the full digital lifecycle</h2>
+          <p>From engineering and cloud to cyber defense, automation, and client success — find where your expertise fits.</p>
+        </div>
+        <nav class="careers-nav" id="careers-nav" aria-label="Role categories"></nav>
+        <div id="careers-list" style="margin-top:3rem"></div>
+      </div>
+    </section>
+
+    <section class="section" id="internships">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Internship Program</span>
+          <h2>Start your career in digital infrastructure</h2>
+          <p>Hands-on internships across engineering, security, cloud, AI, and growth — mentored by practitioners shipping real work for real clients.</p>
+        </div>
+        <div class="card-grid card-grid-3" style="margin-top:2.5rem" id="internships-list"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container card-grid card-grid-2">
+        <div class="card cta-card">
+          <div>
+            <div class="card-icon accent">🤝</div>
+            <h3 style="margin-top:1rem;font-size:1.25rem">How we work</h3>
+            <p style="margin-top:0.5rem">DVN runs in scoped sprints on retainer — continuously integrating and delivering secure, optimized results. You'll collaborate across disciplines, not in silos.</p>
+          </div>
+        </div>
+        <div class="card cta-card primary-bg">
+          <div>
+            <div class="card-icon primary">✓</div>
+            <h3 style="margin-top:1rem;font-size:1.25rem">Ready to apply?</h3>
+            <p style="margin-top:0.5rem">Send your resume, portfolio or GitHub, and the role you're interested in. We review every application personally.</p>
+          </div>
+          <a href="mailto:hello@dvnsecurity.com?subject=Career%20Application%20%E2%80%94%20DVN%20Solutions" class="btn btn-outline" style="margin-top:1.5rem;width:fit-content">Apply Now →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="script.js"></script>
+  <script>
+    const CAREER_DEPARTMENTS = [
+      {
+        id: "engineering",
+        name: "Engineering & Product",
+        icon: "💻",
+        roles: [
+          { title: "Front-End Developer", description: "Design responsive, accessible user interfaces using React, Next.js, TypeScript, Tailwind CSS, and modern component libraries." },
+          { title: "Back-End Developer", description: "Build scalable APIs, authentication systems, microservices, and integrations using Node.js, Python, Go, PostgreSQL, Redis, GraphQL, and REST." },
+          { title: "Full-Stack Developer", description: "Develop end-to-end web applications spanning frontend, backend, databases, authentication, cloud infrastructure, and DevOps pipelines." },
+          { title: "AI Application Developer", description: "Build LLM-powered applications utilizing RAG, vector databases, MCP servers, AI agents, prompt engineering, embeddings, and orchestration frameworks." },
+          { title: "Internal Tools Developer", description: "Develop operational dashboards, admin portals, CRM extensions, workflow platforms, and internal business applications." },
+          { title: "Software QA / Test Engineer", description: "Develop automated test suites, regression testing pipelines, API testing, UI testing, integration testing, and performance validation." },
+          { title: "Mobile Application Developer", description: "Develop cross-platform business applications utilizing Flutter or React Native integrated with cloud-native APIs." },
+        ],
+      },
+      {
+        id: "cloud",
+        name: "Cloud & Infrastructure",
+        icon: "☁️",
+        roles: [
+          { title: "Cloud Engineer", description: "Design AWS, Azure, and Google Cloud environments utilizing Infrastructure as Code, networking, IAM, and cloud-native architectures." },
+          { title: "DevOps Engineer", description: "Develop CI/CD pipelines, GitOps workflows, Docker environments, Kubernetes deployments, monitoring, observability, and automation." },
+          { title: "Platform Engineer", description: "Build reusable internal platforms enabling development teams to deploy applications consistently through standardized infrastructure." },
+          { title: "Systems Engineer", description: "Deploy Windows, Linux, Active Directory, virtualization platforms, DNS, DHCP, storage, backup, and hybrid infrastructure." },
+          { title: "Network Engineer", description: "Configure enterprise routing, switching, VPNs, VLAN segmentation, SD-WAN, wireless networks, Zero Trust architectures, and network automation." },
+          { title: "Cloud Solutions Architect", description: "Design scalable multi-cloud architectures emphasizing resilience, cost optimization, governance, and security." },
+        ],
+      },
+      {
+        id: "cyber-defense",
+        name: "Cyber Defense",
+        icon: "🛡️",
+        roles: [
+          { title: "SOC Analyst", description: "Monitor enterprise security events utilizing SIEM, EDR, XDR, SOAR, threat intelligence, and incident triage methodologies." },
+          { title: "Detection Engineer", description: "Develop behavioral analytics, SIEM correlation rules, Sigma detections, Splunk SPL, Microsoft Sentinel KQL, and detection-as-code pipelines." },
+          { title: "Threat Hunter", description: "Perform hypothesis-driven hunting utilizing MITRE ATT&CK, behavioral analytics, anomaly detection, telemetry correlation, and threat intelligence." },
+          { title: "Incident Response Consultant", description: "Lead investigations involving malware, ransomware, insider threats, cloud compromises, containment strategies, eradication, and recovery." },
+          { title: "Digital Forensics Analyst", description: "Acquire and analyze endpoint, cloud, mobile, and memory artifacts while maintaining forensic integrity and chain of custody." },
+          { title: "Malware Reverse Engineer", description: "Analyze malicious binaries utilizing IDA Pro, Ghidra, x64dbg, YARA, and behavioral analysis." },
+          { title: "Threat Intelligence Researcher", description: "Track threat actors, campaigns, malware families, TTP evolution, OSINT intelligence, and ATT&CK mappings." },
+          { title: "Threat Emulation Engineer", description: "Develop purple team scenarios, adversary emulation plans, Atomic Red Team exercises, CALDERA operations, and attack simulations." },
+          { title: "Purple Team Consultant", description: "Bridge offensive and defensive security through collaborative validation of detection coverage and defensive controls." },
+        ],
+      },
+      {
+        id: "offensive",
+        name: "Offensive Security",
+        icon: "⚔️",
+        roles: [
+          { title: "Penetration Tester", description: "Conduct internal, external, wireless, cloud, Active Directory, web application, API, and social engineering assessments." },
+          { title: "Red Team Operator", description: "Simulate advanced adversaries utilizing covert operations, C2 infrastructure, privilege escalation, lateral movement, persistence, and evasion techniques." },
+          { title: "Application Security Engineer", description: "Integrate SAST, DAST, SCA, secret scanning, secure SDLC practices, and code review into development workflows." },
+          { title: "Vulnerability Management Engineer", description: "Manage enterprise vulnerability programs utilizing Nessus, Qualys, InsightVM, CVSS prioritization, remediation tracking, and executive reporting." },
+          { title: "Social Engineering Specialist", description: "Conduct phishing simulations, physical security assessments, vishing engagements, awareness campaigns, and human risk evaluations." },
+        ],
+      },
+      {
+        id: "grc",
+        name: "Governance, Risk & Identity",
+        icon: "⚖️",
+        roles: [
+          { title: "GRC Consultant", description: "Implement governance frameworks, risk assessments, control mappings, policy development, compliance readiness, and audit support." },
+          { title: "Cyber Risk Analyst", description: "Perform quantitative and qualitative risk analysis utilizing FAIR, NIST CSF, ISO 27001, CIS Controls, and business impact assessments." },
+          { title: "IAM Engineer", description: "Deploy identity governance solutions, SSO, MFA, federation, PAM, lifecycle automation, Active Directory, and Entra ID." },
+          { title: "Identity Architect", description: "Design enterprise identity strategies emphasizing Zero Trust, authentication, authorization, RBAC, ABAC, and cloud identity." },
+          { title: "Compliance Consultant", description: "Support ISO 27001, SOC 2, HIPAA, PCI DSS, NIST 800-53, CMMC, and vendor security assessments." },
+        ],
+      },
+      {
+        id: "ai",
+        name: "AI & Automation",
+        icon: "✨",
+        roles: [
+          { title: "AI Automation Engineer", description: "Design autonomous workflows utilizing LLMs, AI agents, MCP, APIs, event-driven systems, and orchestration platforms." },
+          { title: "AI Agent Engineer", description: "Develop specialized multi-agent systems supporting cybersecurity, sales, operations, analytics, and business automation." },
+          { title: "Prompt Engineer", description: "Design evaluation pipelines, prompt optimization strategies, context engineering, retrieval workflows, and model performance testing." },
+          { title: "Workflow Automation Consultant", description: "Automate business processes utilizing n8n, Zapier, Make, Power Automate, APIs, and custom integrations." },
+          { title: "Business Intelligence Engineer", description: "Develop executive dashboards, KPIs, reporting pipelines, ETL workflows, and operational analytics." },
+        ],
+      },
+      {
+        id: "growth",
+        name: "Growth & Digital",
+        icon: "📈",
+        roles: [
+          { title: "SEO Analyst", description: "Conduct technical SEO audits, keyword research, schema optimization, Core Web Vitals improvements, backlink analysis, and search strategy." },
+          { title: "Digital Marketing Strategist", description: "Design omnichannel acquisition strategies spanning SEO, PPC, content marketing, conversion optimization, and analytics." },
+          { title: "CRM Consultant", description: "Implement CRM systems, lead pipelines, sales automation, customer lifecycle workflows, and reporting dashboards." },
+          { title: "UX Researcher", description: "Conduct usability testing, customer journey analysis, accessibility evaluations, information architecture, and user behavior research." },
+          { title: "Conversion Rate Optimization Specialist", description: "Improve landing pages through experimentation, A/B testing, analytics, funnel optimization, and behavioral insights." },
+        ],
+      },
+      {
+        id: "consulting",
+        name: "Consulting & Client Success",
+        icon: "🧭",
+        roles: [
+          { title: "Solutions Architect", description: "Translate business requirements into integrated technical solutions spanning cloud, AI, cybersecurity, networking, and automation." },
+          { title: "Security Consultant", description: "Advise organizations on enterprise security architecture, technology modernization, governance, and risk reduction strategies." },
+          { title: "Sales Engineer", description: "Support business development by conducting technical discovery, solution demonstrations, architecture workshops, and proof-of-concepts." },
+          { title: "Technical Account Manager", description: "Serve as the strategic advisor for client engagements, roadmap execution, service delivery, and adoption." },
+          { title: "Customer Success Consultant", description: "Ensure long-term client success through onboarding, optimization reviews, executive reporting, and continuous improvement initiatives." },
+        ],
+      },
+      {
+        id: "research",
+        name: "Research & Innovation",
+        icon: "🔬",
+        roles: [
+          { title: "Cybersecurity Researcher", description: "Research emerging threats, AI security, attack techniques, detection methodologies, and defensive technologies." },
+          { title: "AI Research Engineer", description: "Prototype advanced LLM workflows, autonomous systems, retrieval architectures, evaluation frameworks, and model integrations." },
+          { title: "Innovation Engineer", description: "Develop proofs-of-concept exploring robotics, IoT, autonomous infrastructure, digital twins, and emerging technologies." },
+        ],
+      },
+    ];
+
+    const INTERNSHIPS = [
+      "Cybersecurity Intern",
+      "Software Engineering Intern",
+      "AI Engineering Intern",
+      "Digital Forensics Intern",
+      "Detection Engineering Intern",
+      "Cloud Engineering Intern",
+      "DevOps Intern",
+      "Penetration Testing Intern",
+      "GRC Intern",
+      "Digital Marketing Intern",
+      "UX Research Intern",
+      "Sales Engineering Intern",
+    ];
+
+    document.getElementById("careers-nav").innerHTML = CAREER_DEPARTMENTS.map((d) =>
+      `<a href="#${d.id}" class="careers-nav-link">${d.name}</a>`
+    ).join("");
+
+    document.getElementById("careers-list").innerHTML = CAREER_DEPARTMENTS.map((dept) => `
+      <section class="careers-dept" id="${dept.id}">
+        <div class="careers-dept-header">
+          <div class="card-icon accent">${dept.icon}</div>
+          <h3>${dept.name}</h3>
+          <span class="badge badge-outline">${dept.roles.length} roles</span>
+        </div>
+        <div class="card-grid card-grid-2" style="margin-top:1.5rem">
+          ${dept.roles.map((role) => `
+            <article class="card role-card">
+              <h4>${role.title}</h4>
+              <p>${role.description}</p>
+              <a href="mailto:hello@dvnsecurity.com?subject=${encodeURIComponent("Application: " + role.title)}" class="link-accent" style="margin-top:1rem;font-size:0.875rem">Apply for this role →</a>
+            </article>`).join("")}
+        </div>
+      </section>`).join("");
+
+    document.getElementById("internships-list").innerHTML = INTERNSHIPS.map((title) => `
+      <div class="card role-card">
+        <h4>${title}</h4>
+        <p>Mentored, hands-on experience shipping real infrastructure work alongside DVN practitioners.</p>
+        <a href="mailto:hello@dvnsecurity.com?subject=${encodeURIComponent("Internship Application: " + title)}" class="link-accent" style="margin-top:1rem;font-size:0.875rem">Apply →</a>
+      </div>`).join("");
+  </script>
+</body>
+</html>
