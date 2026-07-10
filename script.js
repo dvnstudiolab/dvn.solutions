@@ -2,28 +2,28 @@
 
 const SITE = {
   name: "DVN Solutions",
+  tagline: "Digital Infrastructure as a Service",
   email: "hello@dvnsecurity.com",
 };
 
 const NAV = [
   { label: "Services", href: "services.html" },
-  { label: "Snapshot", href: "security-snapshot.html" },
-  { label: "Scorecard", href: "scorecard.html" },
   { label: "Pricing", href: "pricing.html" },
   { label: "Projects", href: "projects.html" },
   { label: "Library", href: "library.html" },
-  { label: "Resources", href: "resources.html" },
   { label: "About", href: "about.html" },
 ];
 
 const FOOTER_COLUMNS = [
   {
-    title: "Consulting",
+    title: "Lifecycle",
     links: [
-      { label: "Services", href: "services.html" },
+      { label: "Build", href: "services.html#build" },
+      { label: "Deploy", href: "services.html#deploy" },
+      { label: "Secure", href: "services.html#secure" },
+      { label: "Optimize", href: "services.html#optimize" },
+      { label: "Automate", href: "services.html#automate" },
       { label: "Pricing", href: "pricing.html" },
-      { label: "Security Snapshot", href: "security-snapshot.html" },
-      { label: "Book a Call", href: "book.html" },
     ],
   },
   {
@@ -31,6 +31,7 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "The Library", href: "library.html" },
       { label: "Readiness Scorecard", href: "scorecard.html" },
+      { label: "Infrastructure Snapshot", href: "security-snapshot.html" },
       { label: "Downloadable Resources", href: "resources.html" },
       { label: "Projects & Case Studies", href: "projects.html" },
       { label: "About", href: "about.html" },
@@ -45,20 +46,56 @@ const FOOTER_COLUMNS = [
   },
 ];
 
-const SERVICES = [
-  { slug: "security-architecture-review", name: "Security Architecture Review", summary: "A structured review of your security architecture against real-world threats.", icon: "🛡️", timeline: "2-3 weeks" },
-  { slug: "cloud-security-assessment", name: "Cloud Security Assessment", summary: "Deep assessment of AWS, Azure, or GCP posture, IAM, and workload security.", icon: "☁️", timeline: "1-2 weeks" },
-  { slug: "identity-access-review", name: "Identity & Access Review", summary: "Evaluate identity providers, MFA coverage, privileged access, and lifecycle controls.", icon: "🔑", timeline: "1-2 weeks" },
-  { slug: "soc-detection-review", name: "SOC & Detection Review", summary: "Assess detection coverage, alert quality, and incident response readiness.", icon: "📡", timeline: "2-4 weeks" },
-  { slug: "ai-security-readiness", name: "AI Security Readiness Assessment", summary: "Evaluate how your org is using AI, and where the security and governance gaps are.", icon: "✨", timeline: "1-2 weeks" },
-  { slug: "fractional-security-architect", name: "Fractional Security Architect", summary: "Ongoing embedded security architecture leadership without a full-time hire.", icon: "🧭", timeline: "Ongoing retainer" },
+const LIFECYCLE_PHASES = [
+  {
+    slug: "build",
+    name: "Build",
+    summary: "Websites, applications, cloud environments, AI agents, CRM, branding, and identity systems.",
+    icon: "🏗️",
+    timeline: "Project-based",
+    capabilities: ["Websites", "Branding", "CRM", "AI Apps", "Internal Tools"],
+  },
+  {
+    slug: "deploy",
+    name: "Deploy",
+    summary: "Hosting, cloud, CI/CD, Kubernetes, virtualization, networking, domains, and email.",
+    icon: "🚀",
+    timeline: "Days to weeks",
+    capabilities: ["Cloud", "Hosting", "Networking", "CI/CD", "Containers"],
+  },
+  {
+    slug: "secure",
+    name: "Secure",
+    summary: "IAM, GRC, vulnerability management, penetration testing, monitoring, and compliance.",
+    icon: "🛡️",
+    timeline: "1–4 weeks",
+    capabilities: ["GRC", "IAM", "Vulnerability Management", "Pen Testing", "SOC"],
+  },
+  {
+    slug: "optimize",
+    name: "Optimize",
+    summary: "SEO, analytics, cloud cost optimization, performance tuning, and business intelligence.",
+    icon: "📈",
+    timeline: "Ongoing",
+    capabilities: ["SEO", "Performance", "Analytics", "Cost Optimization", "User Experience"],
+  },
+  {
+    slug: "automate",
+    name: "Automate",
+    summary: "AI agents, workflows, CRM automation, marketing automation, and internal operations.",
+    icon: "⚡",
+    timeline: "Ongoing",
+    capabilities: ["AI Agents", "Workflow Automation", "Marketing Automation", "Business Process Automation", "Reporting"],
+  },
 ];
 
+const SERVICES = LIFECYCLE_PHASES;
+
 const PACKAGES = [
-  { slug: "starter", name: "Starter", tagline: "Security Snapshot", priceRange: "$1,500 – $2,500", billingNote: "one-time", ctaLabel: "Get the Snapshot", featured: false },
-  { slug: "professional", name: "Professional", tagline: "Security Architecture Review", priceRange: "$8,000 – $15,000", billingNote: "per engagement", ctaLabel: "Book a Discovery Call", featured: true },
-  { slug: "premium", name: "Premium", tagline: "Fractional Security Architect", priceRange: "$6,000 – $12,000", billingNote: "per month, retainer", ctaLabel: "Talk to Us", featured: false },
-  { slug: "enterprise", name: "Enterprise", tagline: "C2C / 1099 Consulting", priceRange: "Custom", billingNote: "scoped by engagement", ctaLabel: "Request a Proposal", featured: false },
+  { slug: "starter", name: "Starter", tagline: "Infrastructure Snapshot", priceRange: "$1,500 – $2,500", billingNote: "one-time", ctaLabel: "Get the Snapshot", featured: false },
+  { slug: "professional", name: "Professional", tagline: "Lifecycle Phase Engagement", priceRange: "$8,000 – $25,000", billingNote: "per phase", ctaLabel: "Book a Discovery Call", featured: true },
+  { slug: "premium", name: "Premium", tagline: "DIaaS Partner Retainer", priceRange: "$6,000 – $12,000", billingNote: "per month, retainer", ctaLabel: "Talk to Us", featured: false },
+  { slug: "enterprise", name: "Enterprise", tagline: "Full-Stack Infrastructure Program", priceRange: "Custom", billingNote: "scoped by engagement", ctaLabel: "Request a Proposal", featured: false },
 ];
 
 const SCORECARD_QUESTIONS = [
@@ -79,11 +116,11 @@ const SCORECARD_QUESTIONS = [
 ];
 
 const RISK_TIERS = [
-  { min: 85, label: "Strong Posture", desc: "Your security fundamentals are solid. Focus on optimization and staying ahead of emerging threats like AI governance." },
-  { min: 70, label: "Solid With Gaps", desc: "You have a reasonable foundation but identifiable gaps. A targeted assessment would help prioritize remediation." },
-  { min: 50, label: "Elevated Risk", desc: "Several critical areas need attention. Consider a Security Snapshot to get a clear, prioritized roadmap." },
-  { min: 30, label: "High Risk", desc: "Significant gaps across multiple domains. A full architecture review is recommended before your next growth milestone." },
-  { min: 0, label: "Critical", desc: "Your security posture has major gaps that could block fundraising, fail audits, or lead to breach. Let's talk immediately." },
+  { min: 85, label: "Strong Posture", desc: "Your infrastructure fundamentals are solid. Focus on optimization and automation to stay ahead." },
+  { min: 70, label: "Solid With Gaps", desc: "You have a reasonable foundation but identifiable gaps. A targeted assessment would help prioritize next steps." },
+  { min: 50, label: "Elevated Risk", desc: "Several critical areas need attention. Consider an Infrastructure Snapshot to get a clear, prioritized roadmap." },
+  { min: 30, label: "High Risk", desc: "Significant gaps across multiple domains. A full lifecycle engagement is recommended before your next growth milestone." },
+  { min: 0, label: "Critical", desc: "Your infrastructure has major gaps that could block growth, fail audits, or lead to breach. Let's talk immediately." },
 ];
 
 function currentPage() {
@@ -149,7 +186,7 @@ function renderFooter() {
             <img src="assets/dvn-logo.png" alt="" width="32" height="32">
             <span>${SITE.name}</span>
           </a>
-          <p>Fractional Security Architect + AI-powered security consulting for teams that need executive-ready clarity on their security posture.</p>
+          <p>Your AI-native digital infrastructure partner — we design, deploy, secure, optimize, and automate the complete technology stack that powers your business.</p>
         </div>
         ${FOOTER_COLUMNS.map(
           (col) => `
@@ -161,7 +198,7 @@ function renderFooter() {
       </div>
       <div class="footer-bottom">
         <p>&copy; ${new Date().getFullYear()} ${SITE.name}. All rights reserved.</p>
-        <p>Built as the DVN Consulting Operating System — architecture, systems, clarity.</p>
+        <p>Build → Deploy → Secure → Optimize → Automate. Digital infrastructure, managed as one integrated lifecycle.</p>
       </div>
     </div>`;
 }
@@ -207,7 +244,7 @@ function initScorecard() {
           <p class="scorecard-desc">${tier.desc}</p>
           <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.75rem;align-items:center">
             <a href="book.html" class="btn btn-primary btn-lg">Book a Discovery Call</a>
-            <a href="security-snapshot.html" class="btn btn-outline">Get the Security Snapshot</a>
+            <a href="security-snapshot.html" class="btn btn-outline">Get the Infrastructure Snapshot</a>
           </div>
         </div>`;
       return;

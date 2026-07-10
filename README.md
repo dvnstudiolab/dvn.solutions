@@ -1,6 +1,6 @@
-# DVN Solutions — GitHub Pages
+# DVN Solutions — Digital Infrastructure as a Service
 
-Static marketing site extracted from `src/app/(marketing)` in [dvn-consulting-os](https://github.com/dvnstudiolab/dvn-consulting-os).
+Static marketing site for [DVN Solutions](https://github.com/dvnstudiolab/dvn.solutions) — an AI-native digital infrastructure firm offering Build → Deploy → Secure → Optimize → Automate as a service.
 
 ## Files
 

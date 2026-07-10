@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services — DVN Solutions</title>
-  <meta name="description" content="Security architecture, cloud, identity, SOC, and AI readiness consulting services.">
+  <meta name="description" content="Build, deploy, secure, optimize, and automate your digital infrastructure — organized around business lifecycle outcomes, not technology silos.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,65 +13,66 @@
     <section class="page-header">
       <div class="container section-heading center">
         <span class="eyebrow">Service Catalog</span>
-        <h2>Security consulting built around outcomes, not hours</h2>
-        <p>Every service is scoped with a clear timeline, clear deliverables, and a clear next step.</p>
+        <h2>Where are you in your business lifecycle?</h2>
+        <p>Every engagement is organized around outcomes — build, deploy, secure, optimize, and automate — not a menu of disconnected technologies.</p>
       </div>
     </section>
     <section class="section section-sm">
-      <div class="container card-grid card-grid-2" id="services-list"></div>
+      <div class="container" id="services-list"></div>
     </section>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
   <script src="script.js"></script>
   <script>
-    const SERVICE_DETAILS = {
-      "security-architecture-review": {
-        description: "A comprehensive evaluation of your current security architecture — network segmentation, identity boundaries, data flows, and control coverage — mapped against modern threat models and your business risk tolerance.",
-        outcomes: ["Clear picture of architectural strengths and gaps", "Prioritized remediation roadmap", "Executive-ready findings deck"],
-        deliverables: ["Architecture diagram review", "Gap analysis report", "Prioritized roadmap (30/60/90)", "Executive summary presentation"],
-        idealFor: "Series A-C startups · Companies pre-SOC 2 · Post-incident organizations"
+    const PHASE_DETAILS = {
+      build: {
+        description: "Design and create the digital foundation your business runs on — websites, applications, cloud environments, AI agents, CRM systems, branding, and identity infrastructure.",
+        outcomes: ["Production-ready websites and web applications", "Branded digital presence aligned to your market", "CRM and internal tools tailored to your workflows", "AI agents and apps built for your use cases"],
+        deliverables: ["Website & application builds", "Brand identity & design systems", "CRM setup & configuration", "AI agent prototypes", "Internal tool development"],
+        idealFor: "New ventures · Rebrands · Teams outgrowing off-the-shelf tools · Companies launching new products"
       },
-      "cloud-security-assessment": {
-        description: "A hands-on assessment of your cloud environment covering identity and access management, network exposure, storage and data protection, logging coverage, and misconfiguration risk across AWS, Azure, or GCP.",
-        outcomes: ["Ranked list of cloud misconfigurations", "IAM least-privilege recommendations", "Cloud security roadmap aligned to CIS benchmarks"],
-        deliverables: ["Cloud configuration audit", "IAM policy review", "Risk-ranked findings report", "Remediation backlog"],
-        idealFor: "Cloud-native teams · Post-migration environments · Multi-account AWS/Azure orgs"
+      deploy: {
+        description: "Get your infrastructure live and repeatable — hosting, cloud provisioning, CI/CD pipelines, Kubernetes, virtualization, networking, domains, and email systems deployed with confidence.",
+        outcomes: ["Reliable, scalable hosting and cloud environments", "Automated CI/CD pipelines for code and infrastructure", "Container orchestration and networking configured correctly", "Domains, DNS, and email systems production-ready"],
+        deliverables: ["Cloud environment provisioning", "CI/CD pipeline setup", "Kubernetes & container deployment", "Network architecture & VPN", "Domain, DNS & email configuration"],
+        idealFor: "Teams moving from dev to production · Cloud migrations · Startups scaling past MVP · Companies standardizing deployments"
       },
-      "identity-access-review": {
-        description: "A focused review of your identity fabric — SSO, MFA enforcement, privileged access management, joiner/mover/leaver processes, and conditional access — to close the identity gaps attackers exploit most.",
-        outcomes: ["MFA and conditional access coverage map", "Privileged access risk findings", "Identity lifecycle process recommendations"],
-        deliverables: ["Identity provider configuration review", "Privileged access audit", "Access lifecycle SOP recommendations"],
-        idealFor: "Hybrid workforces · Regulated industries · Recent M&A identity consolidation"
+      secure: {
+        description: "Protect every layer of your digital stack — IAM, GRC, vulnerability management, penetration testing, monitoring, SOC operations, and compliance frameworks built in, not bolted on.",
+        outcomes: ["Identity and access controls enforced across all systems", "Compliance readiness for SOC 2, HIPAA, and enterprise questionnaires", "Vulnerability and exposure management with clear priorities", "Detection, monitoring, and incident response operational"],
+        deliverables: ["IAM & access reviews", "GRC framework mapping", "Vulnerability assessments", "Penetration testing", "SOC & monitoring setup"],
+        idealFor: "Pre-fundraise startups · Pre-audit companies · Enterprise sales cycles · Post-incident remediation"
       },
-      "soc-detection-review": {
-        description: "An evaluation of your SOC operations, detection engineering, and incident response workflows — including log source coverage, alert fidelity, escalation paths, and tabletop-tested response plans.",
-        outcomes: ["Detection coverage mapped to MITRE ATT&CK", "Alert quality and noise reduction plan", "Tested incident response runbook"],
-        deliverables: ["Detection coverage heatmap", "SIEM/EDR configuration review", "Incident response tabletop exercise"],
-        idealFor: "Teams with existing SOC/MSSP · Growing security teams · Post-incident maturity building"
+      optimize: {
+        description: "Make your digital infrastructure work harder — SEO, analytics, cloud cost optimization, performance tuning, user experience improvements, and business intelligence dashboards.",
+        outcomes: ["Search visibility and organic traffic growth", "Cloud spend reduced without sacrificing performance", "Application and infrastructure performance tuned", "Executive dashboards with actionable business intelligence"],
+        deliverables: ["SEO audits & implementation", "Analytics & tracking setup", "Cloud cost optimization review", "Performance tuning", "UX & conversion improvements"],
+        idealFor: "Growing businesses with rising cloud bills · Sites with traffic but low conversion · Teams needing data-driven decisions · Companies post-launch seeking traction"
       },
-      "ai-security-readiness": {
-        description: "A practical assessment of AI tool usage across your organization — data exposure risk, model access controls, shadow AI usage, and policy gaps — with a roadmap for using AI safely without slowing teams down.",
-        outcomes: ["Inventory of AI tools and data exposure risk", "AI usage policy recommendations", "Safe-adoption roadmap for AI-powered workflows"],
-        deliverables: ["AI tool and data flow inventory", "Risk-tiered findings report", "AI security policy starter kit"],
-        idealFor: "Teams adopting AI tools quickly · Legal/compliance-sensitive orgs · Engineering orgs using LLM APIs"
-      },
-      "fractional-security-architect": {
-        description: "Embedded, ongoing security architecture leadership — architecture reviews, roadmap ownership, vendor evaluation, board and exec reporting, and hands-on guidance for your engineering team — delivered on a fractional retainer.",
-        outcomes: ["Continuous architecture and risk oversight", "Executive and board-ready reporting cadence", "Security roadmap tied to business priorities"],
-        deliverables: ["Monthly architecture reviews", "Quarterly roadmap updates", "Ad hoc design reviews and vendor evaluations", "Executive reporting cadence"],
-        idealFor: "Pre-CISO stage companies · Companies needing part-time security leadership · PE-backed portfolio companies"
+      automate: {
+        description: "Free your team from repetitive work — AI agents, workflow automation, CRM automation, marketing automation, business process automation, and automated reporting across your operations.",
+        outcomes: ["AI agents handling customer and internal workflows", "Marketing and CRM processes running on autopilot", "Business processes automated end-to-end", "Automated reporting replacing manual spreadsheets"],
+        deliverables: ["AI agent development & deployment", "Workflow automation (Zapier, n8n, custom)", "CRM & marketing automation", "Business process automation", "Automated reporting & dashboards"],
+        idealFor: "Teams drowning in manual ops · Sales & marketing needing scale · Companies adopting AI · Businesses ready to run leaner"
       }
     };
-    document.getElementById("services-list").innerHTML = SERVICES.map(s => {
-      const d = SERVICE_DETAILS[s.slug];
-      return `<article class="card service-card" id="${s.slug}">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start">
-          <div class="card-icon accent">${s.icon}</div>
-          <span class="badge badge-outline">${s.timeline}</span>
+
+    document.getElementById("services-list").innerHTML = LIFECYCLE_PHASES.map(p => {
+      const d = PHASE_DETAILS[p.slug];
+      return `<article class="card service-card" id="${p.slug}" style="margin-bottom:2rem">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem">
+          <div style="display:flex;align-items:center;gap:1rem">
+            <div class="card-icon accent">${p.icon}</div>
+            <div>
+              <h3 style="font-size:1.5rem">${p.name}</h3>
+              <p style="font-size:0.875rem;color:var(--muted-foreground);margin-top:0.25rem">${p.summary}</p>
+            </div>
+          </div>
+          <span class="badge badge-outline">${p.timeline}</span>
         </div>
-        <h3 style="font-size:1.125rem;margin-top:1rem">${s.name}</h3>
-        <p>${d.description}</p>
-        <p style="margin-top:1rem;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)">Key outcomes</p>
+        <p style="margin-top:1.5rem">${d.description}</p>
+        <div class="deliverable-tags" style="margin-top:1rem">${p.capabilities.map(c => `<span>${c}</span>`).join("")}</div>
+        <p style="margin-top:1.5rem;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)">Key outcomes</p>
         <ul style="margin-top:0.5rem">${d.outcomes.map(o => `<li style="display:flex;gap:0.5rem;font-size:0.875rem;margin-top:0.5rem"><span class="check-icon">✓</span>${o}</li>`).join("")}</ul>
         <p style="margin-top:1rem;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)">Deliverables</p>
         <div class="deliverable-tags">${d.deliverables.map(x => `<span>${x}</span>`).join("")}</div>
