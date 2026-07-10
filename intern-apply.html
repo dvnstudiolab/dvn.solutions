@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply as an Intern — DVN Solutions</title>
+  <meta name="description" content="Apply for an internship at DVN Solutions — digital infrastructure, AI, cloud, cybersecurity, and operations.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+  <main>
+    <section class="page-header">
+      <div class="container section-heading center">
+        <span class="eyebrow">Internship Application</span>
+        <h2>Apply as an intern at DVN</h2>
+        <p>Tell us about your background, availability, and the track you're interested in. We review every application and respond within one week.</p>
+      </div>
+    </section>
+    <section class="section section-sm">
+      <div class="container">
+        <form class="form-card" id="intern-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full name</label>
+              <input id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="location">City & state / country</label>
+              <input id="location" name="location" placeholder="e.g. Austin, TX">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="role">Internship track</label>
+            <select id="role" name="role" required>
+              <option value="">Select a track...</option>
+              <option>Cybersecurity Intern</option>
+              <option>Software Engineering Intern</option>
+              <option>AI Engineering Intern</option>
+              <option>Digital Forensics Intern</option>
+              <option>Detection Engineering Intern</option>
+              <option>Cloud Engineering Intern</option>
+              <option>DevOps Intern</option>
+              <option>Penetration Testing Intern</option>
+              <option>GRC Intern</option>
+              <option>Digital Marketing Intern</option>
+              <option>UX Research Intern</option>
+              <option>Sales Engineering Intern</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="school">School / university</label>
+              <input id="school" name="school" required placeholder="e.g. University of Texas at Austin">
+            </div>
+            <div class="form-group">
+              <label for="degree">Degree program</label>
+              <select id="degree" name="degree" required>
+                <option value="">Select...</option>
+                <option>Associate's</option>
+                <option>Bachelor's</option>
+                <option>Master's</option>
+                <option>PhD</option>
+                <option>Bootcamp / certificate program</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="major">Major / field of study</label>
+              <input id="major" name="major" required placeholder="e.g. Computer Science, Cybersecurity">
+            </div>
+            <div class="form-group">
+              <label for="graduation">Expected graduation</label>
+              <input id="graduation" name="graduation" required placeholder="e.g. May 2027">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="availability-start">Earliest start date</label>
+              <input id="availability-start" name="availability-start" type="date" required>
+            </div>
+            <div class="form-group">
+              <label for="availability-hours">Hours per week</label>
+              <select id="availability-hours" name="availability-hours" required>
+                <option value="">Select...</option>
+                <option>10–15 hours</option>
+                <option>15–20 hours</option>
+                <option>20–30 hours</option>
+                <option>30–40 hours (full-time)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="availability-duration">Preferred duration</label>
+              <select id="availability-duration" name="availability-duration" required>
+                <option value="">Select...</option>
+                <option>Summer (10–12 weeks)</option>
+                <option>One semester</option>
+                <option>Two semesters</option>
+                <option>6+ months</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="work-authorization">Work authorization</label>
+              <select id="work-authorization" name="work-authorization" required>
+                <option value="">Select...</option>
+                <option>US citizen / permanent resident</option>
+                <option>F-1 student (eligible for CPT/OPT)</option>
+                <option>Other visa / authorization</option>
+                <option>International — not currently authorized</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="work-mode">Preferred work mode</label>
+            <select id="work-mode" name="work-mode" required>
+              <option value="">Select...</option>
+              <option>Remote</option>
+              <option>Hybrid</option>
+              <option>On-site</option>
+              <option>Flexible</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="linkedin">LinkedIn URL</label>
+              <input id="linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/...">
+            </div>
+            <div class="form-group">
+              <label for="github">GitHub / portfolio URL</label>
+              <input id="github" name="github" type="url" placeholder="https://github.com/...">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="resume">Resume link</label>
+            <input id="resume" name="resume" type="url" placeholder="Google Drive, Dropbox, or personal site link to your resume">
+          </div>
+
+          <div class="form-group">
+            <label for="why-dvn">Why DVN? What do you want to learn?</label>
+            <textarea id="why-dvn" name="why-dvn" required placeholder="Tell us what drew you to this track, relevant coursework or projects, and what you hope to gain from the internship."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Submit Application</button>
+          <p style="margin-top:1rem;text-align:center;font-size:0.75rem;color:var(--muted-foreground)">
+            <a href="careers.html#internships" class="link-accent">← Back to internship listings</a>
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="script.js"></script>
+</body>
+</html>

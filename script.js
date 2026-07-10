@@ -336,9 +336,40 @@ function initBookingForm() {
   });
 }
 
+function initInternForm() {
+  const form = document.getElementById("intern-form");
+  if (!form) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const role = params.get("role");
+  const roleSelect = document.getElementById("role");
+  if (role && roleSelect) {
+    const match = [...roleSelect.options].find((o) => o.value === role || o.text === role);
+    if (match) roleSelect.value = match.value;
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const lines = [];
+    fd.forEach((v, k) => lines.push(`${k}: ${v}`));
+    const roleLabel = fd.get("role") || "Internship";
+    const subject = encodeURIComponent(`Internship application: ${roleLabel}`);
+    const body = encodeURIComponent(lines.join("\n"));
+    window.location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
+    form.innerHTML = `
+      <div style="text-align:center;padding:2rem 0">
+        <p style="font-size:1.25rem;font-weight:600;margin-bottom:0.5rem">Application ready to send!</p>
+        <p style="color:var(--muted-foreground)">Your email client should open with your details. We'll review your application and respond within one week.</p>
+        <a href="careers.html#internships" class="btn btn-outline" style="margin-top:1.5rem">Back to Careers</a>
+      </div>`;
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderHeader();
   renderFooter();
   initScorecard();
   initBookingForm();
+  initInternForm();
 });

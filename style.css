@@ -485,6 +485,15 @@ main { flex: 1; }
 }
 .form-group textarea { min-height: 6rem; resize: vertical; }
 
+.form-row {
+  display: grid;
+  gap: 0 1.25rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .form-row { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* Scorecard */
 .scorecard-progress {
   height: 4px;
