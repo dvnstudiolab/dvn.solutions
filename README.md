@@ -1,4 +1,4 @@
-# DVN Security Architecture — GitHub Pages
+# DVN Solutions — GitHub Pages
 
 Static marketing site extracted from `src/app/(marketing)` in [dvn-consulting-os](https://github.com/dvnstudiolab/dvn-consulting-os).
 

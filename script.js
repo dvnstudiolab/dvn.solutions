@@ -1,7 +1,7 @@
-/* DVN Security Architecture — shared site logic */
+/* DVN Solutions — shared site logic */
 
 const SITE = {
-  name: "DVN Security Architecture",
+  name: "DVN Solutions",
   email: "hello@dvnsecurity.com",
 };
 
@@ -99,8 +99,8 @@ function renderHeader() {
     <div class="brand-gradient-bar"></div>
     <div class="container header-inner">
       <a href="index.html" class="logo-link">
-        <img src="assets/dvn-logo.png" alt="DVN Security Architecture logo" width="34" height="34">
-        <span>DVN <span class="muted">Security Architecture</span></span>
+        <img src="assets/dvn-logo.png" alt="DVN Solutions logo" width="34" height="34">
+        <span>DVN <span class="muted">Solutions</span></span>
       </a>
       <nav class="nav-desktop">
         ${NAV.map((item) => `<a href="${item.href}" class="${page === item.href ? "active" : ""}">${item.label}</a>`).join("")}
@@ -114,7 +114,7 @@ function renderHeader() {
       <div class="mobile-nav-panel">
         <button class="mobile-nav-close" id="menu-close" aria-label="Close menu">×</button>
         <a href="index.html" class="logo-link" style="margin-bottom:1rem">
-          <img src="assets/dvn-logo.png" alt="" width="22" height="22"> DVN Security
+          <img src="assets/dvn-logo.png" alt="" width="22" height="22"> DVN Solutions
         </a>
         <nav>
           ${NAV.map((item) => `<a href="${item.href}">${item.label}</a>`).join("")}
