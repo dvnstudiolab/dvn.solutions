@@ -1,6 +1,6 @@
-# DVN Solutions — Digital · Virtual · Network
+# DVN Synthesis — Digital · Virtual · Network
 
-Static marketing site for [DVN Solutions](https://github.com/dvnstudiolab/dvn.solutions) — Digital · Virtual · Network.
+Static marketing site for [DVN Synthesis](https://github.com/dvnstudiolab/dvn.solutions) — Digital · Virtual · Network.
 
 ## Files
 

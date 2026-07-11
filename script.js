@@ -1,7 +1,7 @@
-/* DVN Solutions — shared site logic */
+/* DVN Synthesis — shared site logic */
 
 const SITE = {
-  name: "DVN Solutions",
+  name: "DVN Synthesis",
   tagline: "Digital · Virtual · Network",
   motto: "Digital is what you create. Virtual is where it runs. Network is how it connects.",
   email: "hello@dvnsecurity.com",
@@ -181,8 +181,8 @@ function renderHeader() {
     <div class="brand-gradient-bar"></div>
     <div class="container header-inner">
       <a href="index.html" class="logo-link">
-        <img src="assets/dvn-logo.png" alt="DVN Solutions logo" width="34" height="34">
-        <span>DVN <span class="muted">Solutions</span></span>
+        <img src="assets/dvn-logo.png" alt="DVN Synthesis logo" width="34" height="34">
+        <span>DVN <span class="muted">Synthesis</span></span>
       </a>
       <nav class="nav-desktop">
         ${NAV.map((item) => `<a href="${item.href}" class="${page === item.href ? "active" : ""}">${item.label}</a>`).join("")}
@@ -196,7 +196,7 @@ function renderHeader() {
       <div class="mobile-nav-panel">
         <button class="mobile-nav-close" id="menu-close" aria-label="Close menu">×</button>
         <a href="index.html" class="logo-link" style="margin-bottom:1rem">
-          <img src="assets/dvn-logo.png" alt="" width="22" height="22"> DVN Solutions
+          <img src="assets/dvn-logo.png" alt="" width="22" height="22"> DVN Synthesis
         </a>
         <nav>
           ${NAV.map((item) => `<a href="${item.href}">${item.label}</a>`).join("")}
