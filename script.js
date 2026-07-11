@@ -190,34 +190,57 @@ function renderHeader() {
       <div class="header-actions">
         <a href="book.html" class="btn btn-primary btn-sm">Book a Call</a>
       </div>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">${icon("menu", 22)}</button>
-    </div>
-    <div class="mobile-nav" id="mobile-nav">
-      <div class="mobile-nav-panel">
-        <button class="mobile-nav-close" id="menu-close" aria-label="Close menu">${icon("close", 22)}</button>
-        <a href="index.html" class="logo-link" style="margin-bottom:1rem">
-          <img src="assets/dvn-logo.png" alt="" width="22" height="22"> DVN Synthesis
-        </a>
-        <nav>
-          ${NAV.map((item) => `<a href="${item.href}">${item.label}</a>`).join("")}
-        </nav>
-        <div class="mobile-nav-actions">
-          <a href="book.html" class="btn btn-primary btn-block">Book a Call</a>
-        </div>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">${icon("menu", 22)}</button>
+    </div>`;
+
+  let mobileNav = document.getElementById("mobile-nav");
+  if (!mobileNav) {
+    mobileNav = document.createElement("div");
+    mobileNav.id = "mobile-nav";
+    document.body.appendChild(mobileNav);
+  }
+  mobileNav.className = "mobile-nav";
+
+  mobileNav.classList.remove("open");
+
+  mobileNav.innerHTML = `
+    <div class="mobile-nav-panel">
+      <button class="mobile-nav-close" id="menu-close" aria-label="Close menu">${icon("close", 22)}</button>
+      <a href="index.html" class="logo-link" style="margin-bottom:1rem">
+        <img src="assets/dvn-logo.png" alt="" width="22" height="22"> DVN Synthesis
+      </a>
+      <nav>
+        ${NAV.map((item) => `<a href="${item.href}">${item.label}</a>`).join("")}
+      </nav>
+      <div class="mobile-nav-actions">
+        <a href="book.html" class="btn btn-primary btn-block">Book a Call</a>
       </div>
     </div>`;
 
-  document.getElementById("menu-toggle")?.addEventListener("click", () => {
-    document.getElementById("mobile-nav")?.classList.add("open");
-  });
+  document.getElementById("menu-toggle")?.addEventListener("click", openMobileNav);
   document.getElementById("menu-close")?.addEventListener("click", closeMobileNav);
-  document.getElementById("mobile-nav")?.addEventListener("click", (e) => {
-    if (e.target.id === "mobile-nav") closeMobileNav();
+  mobileNav.addEventListener("click", (e) => {
+    if (e.target === mobileNav) closeMobileNav();
+  });
+  mobileNav.querySelectorAll("nav a").forEach((link) => {
+    link.addEventListener("click", closeMobileNav);
   });
 }
 
+function openMobileNav() {
+  const mobileNav = document.getElementById("mobile-nav");
+  const toggle = document.getElementById("menu-toggle");
+  mobileNav?.classList.add("open");
+  document.body.classList.add("mobile-menu-open");
+  toggle?.setAttribute("aria-expanded", "true");
+}
+
 function closeMobileNav() {
-  document.getElementById("mobile-nav")?.classList.remove("open");
+  const mobileNav = document.getElementById("mobile-nav");
+  const toggle = document.getElementById("menu-toggle");
+  mobileNav?.classList.remove("open");
+  document.body.classList.remove("mobile-menu-open");
+  toggle?.setAttribute("aria-expanded", "false");
 }
 
 function renderFooter() {
