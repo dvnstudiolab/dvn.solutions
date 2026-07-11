@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Knowledge Fabric — DVN Synthesis</title>
+  <meta name="description" content="DVN Secure Knowledge Fabric — encrypted local RAG and a SecOps knowledge graph that turns SOPs, playbooks, detections, and institutional knowledge into evidence-backed operational intelligence.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+  <main class="product-detail">
+    <section class="page-header">
+      <div class="container hero-content">
+        <nav class="product-breadcrumb" aria-label="Breadcrumb">
+          <a href="products.html">Products</a> <span>/</span> Secure Knowledge Fabric
+        </nav>
+        <span class="eyebrow">Product #1 · Secure</span>
+        <h1 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:600;letter-spacing:-0.02em;line-height:1.15;margin-top:0.75rem">DVN Secure Knowledge Fabric</h1>
+        <p>Transform your organization's SOPs, playbooks, detection logic, threat intelligence, investigation history, and security documentation into a private operational intelligence network.</p>
+        <p style="margin-top:1rem;color:var(--muted-foreground)">Encrypted local RAG combined with a security-focused knowledge graph — find trusted information, understand relationships, standardize investigations, and produce stakeholder-ready deliverables.</p>
+        <div class="hero-actions">
+          <a href="mailto:hello@dvnsecurity.com?subject=Demo%20Request%20%E2%80%94%20DVN%20Secure%20Knowledge%20Fabric" class="btn btn-primary btn-lg">Request a Demo →</a>
+          <a href="#modules" class="btn btn-outline btn-lg">Explore Capabilities</a>
+        </div>
+        <div class="deliverable-tags" style="margin-top:2rem;justify-content:center">
+          <span>On-premises</span><span>Air-gapped</span><span>Private cloud</span>
+          <span>Customer VPC</span><span>Source-level permissions</span><span>Full auditability</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">The problem</span>
+          <h2>Valuable security knowledge, scattered everywhere</h2>
+          <p>Most SecOps teams hold institutional knowledge across disconnected systems — none of it connected, governed, or ready to act on under pressure.</p>
+        </div>
+        <div class="card-grid card-grid-4" style="margin-top:2.5rem" id="scattered-sources"></div>
+        <div class="dvn-quote" style="margin-top:2.5rem;max-width:48rem;margin-left:auto;margin-right:auto">
+          DVN Secure Knowledge Fabric ingests and connects these sources without sending sensitive information to a public AI provider.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Core value</span>
+          <h2>An organization-specific security reasoning layer</h2>
+          <p>Instead of merely chatting with documents, the platform builds an internal network of relationships among your security entities.</p>
+        </div>
+        <div class="deliverable-tags" style="margin-top:2rem;justify-content:center" id="graph-entities"></div>
+        <div class="card-grid card-grid-3" style="margin-top:3rem" id="compare-grid"></div>
+      </div>
+    </section>
+
+    <nav class="product-nav-wrap" aria-label="Product sections">
+      <div class="container"><nav class="product-nav" id="product-nav"></nav></div>
+    </nav>
+
+    <section class="section section-alt" id="users">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Primary users</span>
+          <h2>Built for every SecOps discipline</h2>
+        </div>
+        <div class="card-grid card-grid-3" style="margin-top:2.5rem" id="users-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="modules">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Core modules</span>
+          <h2>Ingestion, retrieval, and relationship intelligence</h2>
+        </div>
+        <div id="modules-list" style="margin-top:2.5rem"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="deliverables">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Operational asset factory</span>
+          <h2>From institutional knowledge to standardized security assets</h2>
+          <p>The strongest differentiator is not document search — it is converting internal knowledge into reusable, approved deliverables.</p>
+        </div>
+        <div id="deliverables-list" style="margin-top:2.5rem"></div>
+      </div>
+    </section>
+
+    <section class="section" id="workflow">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Example workflow</span>
+          <h2>Suspicious PowerShell activity — end to end</h2>
+          <p>An analyst investigates. The platform organizes evidence, applies internal knowledge, and prepares the work product. The analyst remains the decision-maker.</p>
+        </div>
+        <ol class="workflow-steps" id="workflow-steps" style="margin-top:2.5rem"></ol>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="architecture">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Security architecture</span>
+          <h2>Deploy where your data must stay</h2>
+          <p>On-premises, air-gapped, private cloud, customer-controlled VPC, or hybrid — with permissions enforced before context reaches the model.</p>
+        </div>
+        <div class="card-grid card-grid-2" style="margin-top:2.5rem" id="arch-layers"></div>
+        <div class="card" style="margin-top:2rem">
+          <h3>Security controls</h3>
+          <div class="deliverable-tags" id="security-controls" style="margin-top:1rem"></div>
+          <p style="margin-top:1.25rem;font-size:0.875rem;color:var(--muted-foreground);line-height:1.7">Retrieval permissions must be enforced before context reaches the model. The system never retrieves prohibited content and then merely instructs the model not to mention it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="governance">
+      <div class="container two-col" style="align-items:start;gap:3rem">
+        <div>
+          <div class="section-heading">
+            <span class="eyebrow">Human approval model</span>
+            <h2>Governed generation, not an uncontrolled chatbot</h2>
+            <p>Generated content moves through controlled states with approval paths tailored to each asset type.</p>
+          </div>
+          <div class="approval-flow" style="margin-top:2rem">
+            <span>Draft</span><span class="approval-arrow">→</span>
+            <span>Analyst Reviewed</span><span class="approval-arrow">→</span>
+            <span>Technical Review</span><span class="approval-arrow">→</span>
+            <span>Management Approval</span><span class="approval-arrow">→</span>
+            <span>Published</span>
+          </div>
+          <ul style="margin-top:2rem" id="approval-examples"></ul>
+        </div>
+        <div class="card">
+          <h3>Knowledge governance</h3>
+          <p style="margin-top:0.75rem;color:var(--muted-foreground);font-size:0.875rem;line-height:1.7">Every knowledge object carries owner, source, version, approval status, effective date, review cycle, sensitivity level, and mapped relationships.</p>
+          <p style="margin-top:1rem;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)">Automatically identifies</p>
+          <ul style="margin-top:0.5rem" id="governance-flags"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="roadmap">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Roadmap</span>
+          <h2>From private SecOps assistant to governed agentic operations</h2>
+        </div>
+        <div class="roadmap-timeline" id="roadmap-list" style="margin-top:2.5rem"></div>
+        <div class="card featured" style="margin-top:2.5rem">
+          <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+            <div class="card-icon accent" data-icon="zap"></div>
+            <div>
+              <h3>Initial MVP focus</h3>
+              <p style="margin-top:0.5rem;color:var(--muted-foreground)">SOC SOPs, IR playbooks, detection catalog, MITRE ATT&CK, closed incidents, threat intel, asset inventory, and report templates — with role-aware retrieval, citations, investigation checklists, case summaries, hunt plans, and complete audit logging.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="packaging">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Commercial packaging</span>
+          <h2>Three tiers. Professional services alongside.</h2>
+        </div>
+        <div class="card-grid card-grid-3" style="margin-top:2.5rem" id="packaging-list"></div>
+        <div class="card" style="margin-top:2rem">
+          <h3>Professional services</h3>
+          <div class="deliverable-tags" id="pro-services" style="margin-top:1rem"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="card cta-card primary-bg" style="text-align:center;padding:2.5rem">
+          <div class="card-icon primary" data-icon="shield" style="margin:0 auto"></div>
+          <h3 style="margin-top:1rem;font-size:1.375rem">Request a demo of Secure Knowledge Fabric</h3>
+          <p style="margin-top:0.75rem;max-width:36rem;margin-left:auto;margin-right:auto;color:var(--muted-foreground)">Schedule a walkthrough of encrypted local RAG, the SecOps knowledge graph, and an MVP scoped to your highest-value investigation workflow.</p>
+          <div class="hero-actions" style="justify-content:center;margin-top:1.5rem">
+            <a href="mailto:hello@dvnsecurity.com?subject=Demo%20Request%20%E2%80%94%20DVN%20Secure%20Knowledge%20Fabric" class="btn btn-primary btn-lg">Request a Demo →</a>
+            <a href="products.html" class="btn btn-outline btn-lg">All Products</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="icons.js"></script>
+  <script src="script.js"></script>
+  <script src="products-pages.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      initIcons();
+      initKnowledgeFabricPage();
+    });
+  </script>
+</body>
+</html>

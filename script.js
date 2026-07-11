@@ -9,6 +9,7 @@ const SITE = {
 
 const NAV = [
   { label: "Services", href: "services.html" },
+  { label: "Products", href: "products.html" },
   { label: "Pricing", href: "pricing.html" },
   { label: "Projects", href: "projects.html" },
   { label: "Careers", href: "careers.html" },
@@ -20,6 +21,9 @@ const FOOTER_COLUMNS = [
     title: "DVN",
     links: [
       { label: "About", href: "about.html" },
+      { label: "Products", href: "products.html" },
+      { label: "Knowledge Fabric", href: "secure-knowledge-fabric.html" },
+      { label: "Transformation Studio", href: "security-transformation-studio.html" },
       { label: "Build", href: "services.html#build" },
       { label: "Deploy", href: "services.html#deploy" },
       { label: "Secure", href: "services.html#secure" },
@@ -173,10 +177,17 @@ function currentPage() {
   return path === "" ? "index.html" : path;
 }
 
+function isProductsSection(page) {
+  return page === "products.html"
+    || page === "secure-knowledge-fabric.html"
+    || page === "security-transformation-studio.html";
+}
+
 function renderHeader() {
   const el = document.getElementById("site-header");
   if (!el) return;
   const page = currentPage();
+  const productsActive = isProductsSection(page);
   el.innerHTML = `
     <div class="brand-gradient-bar"></div>
     <div class="container header-inner">
@@ -185,7 +196,7 @@ function renderHeader() {
         <span>DVN <span class="muted">Synthesis</span></span>
       </a>
       <nav class="nav-desktop">
-        ${NAV.map((item) => `<a href="${item.href}" class="${page === item.href ? "active" : ""}">${item.label}</a>`).join("")}
+        ${NAV.map((item) => `<a href="${item.href}" class="${page === item.href || (productsActive && item.href === "products.html") ? "active" : ""}">${item.label}</a>`).join("")}
       </nav>
       <div class="header-actions">
         <a href="book.html" class="btn btn-primary btn-sm">Book a Call</a>

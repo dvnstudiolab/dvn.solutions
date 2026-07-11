@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — DVN Synthesis</title>
+  <meta name="description" content="DVN Secure Knowledge Fabric and DVN Security Transformation Studio — encrypted SecOps intelligence and organization-specific training from your trusted security knowledge.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+  <main>
+    <section class="page-header">
+      <div class="container section-heading center">
+        <span class="eyebrow">DVN Security Platform</span>
+        <h2>Operational intelligence. Workforce readiness.</h2>
+        <p>Two integrated products — one encrypted knowledge layer for SecOps operations, one transformation layer that turns that knowledge into training, simulations, and multimedia.</p>
+      </div>
+    </section>
+
+    <section class="section section-sm">
+      <div class="container">
+        <div class="product-showcase-grid" id="product-showcase"></div>
+        <div class="learning-cycle" style="margin-top:3rem">
+          <span>Knowledge</span><span class="learning-cycle-arrow">→</span>
+          <span>Operational Use</span><span class="learning-cycle-arrow">→</span>
+          <span>Training</span><span class="learning-cycle-arrow">→</span>
+          <span>Simulation</span><span class="learning-cycle-arrow">→</span>
+          <span>Performance Data</span><span class="learning-cycle-arrow">→</span>
+          <span>Knowledge Improvement</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container card-grid card-grid-2">
+        <div class="card">
+          <div class="card-icon accent" data-icon="network"></div>
+          <h3 style="margin-top:1rem">Knowledge & operations</h3>
+          <p style="margin-top:0.5rem;font-size:0.875rem;color:var(--muted-foreground);line-height:1.6">What does the organization know? Which sources are authoritative? How are assets, threats, controls, and procedures connected?</p>
+        </div>
+        <div class="card featured">
+          <div class="card-icon accent" data-icon="play"></div>
+          <h3 style="margin-top:1rem">Transformation & learning</h3>
+          <p style="margin-top:0.5rem;font-size:0.875rem;color:var(--muted-foreground);line-height:1.6">How should this knowledge be taught? How can employees practice safely? How can one source become multiple learning assets?</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="icons.js"></script>
+  <script src="script.js"></script>
+  <script src="products-pages.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      initIcons();
+      initProductsOverview();
+    });
+  </script>
+</body>
+</html>
