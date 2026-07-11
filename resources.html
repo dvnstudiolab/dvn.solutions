@@ -23,7 +23,7 @@
 
     <div id="resource-modal" class="mobile-nav hidden">
       <div class="mobile-nav-panel" style="width:min(100%,28rem);left:50%;top:50%;right:auto;bottom:auto;transform:translate(-50%,-50%);border:1px solid var(--border);border-radius:calc(var(--radius)+4px)">
-        <button class="mobile-nav-close" id="modal-close" aria-label="Close">×</button>
+        <button class="mobile-nav-close" id="modal-close" aria-label="Close" data-icon="close" data-icon-size="22"></button>
         <h3 id="modal-title" style="font-size:1.125rem;font-weight:600;padding-right:2rem"></h3>
         <p id="modal-desc" style="margin-top:0.5rem;font-size:0.875rem;color:var(--muted-foreground)"></p>
         <form id="resource-form" style="margin-top:1.5rem">
@@ -36,6 +36,7 @@
     </div>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
+  <script src="icons.js"></script>
   <script src="script.js"></script>
   <script>
     const RESOURCES = [
@@ -49,7 +50,7 @@
     document.getElementById("resources-list").innerHTML = RESOURCES.map(r => `
       <div class="card" style="display:flex;flex-direction:column;justify-content:space-between">
         <div>
-          <div class="card-icon accent">📄</div>
+          <div class="card-icon accent">${icon("file")}</div>
           <h3 style="margin-top:0.75rem">${r.title}</h3>
           <p>${r.description}</p>
         </div>

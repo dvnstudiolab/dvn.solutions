@@ -22,6 +22,7 @@
     </section>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
+  <script src="icons.js"></script>
   <script src="script.js"></script>
   <script>
     const PHASE_DETAILS = {
@@ -62,7 +63,7 @@
       return `<article class="card service-card" id="${p.slug}" style="margin-bottom:2rem">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem">
           <div style="display:flex;align-items:center;gap:1rem">
-            <div class="card-icon accent">${p.icon}</div>
+            <div class="card-icon accent">${icon(p.icon)}</div>
             <div>
               <h3 style="font-size:1.5rem">${p.name}</h3>
               <p style="font-size:0.875rem;color:var(--muted-foreground);margin-top:0.25rem">${p.summary}</p>
@@ -73,7 +74,7 @@
         <p style="margin-top:1.5rem">${d.description}</p>
         <div class="deliverable-tags" style="margin-top:1rem">${p.capabilities.map(c => `<span>${c}</span>`).join("")}</div>
         <p style="margin-top:1.5rem;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)">Key outcomes</p>
-        <ul style="margin-top:0.5rem">${d.outcomes.map(o => `<li style="display:flex;gap:0.5rem;font-size:0.875rem;margin-top:0.5rem"><span class="check-icon">✓</span>${o}</li>`).join("")}</ul>
+        <ul style="margin-top:0.5rem">${d.outcomes.map(o => `<li style="display:flex;gap:0.5rem;font-size:0.875rem;margin-top:0.5rem"><span class="check-icon">${icon("check", 16)}</span>${o}</li>`).join("")}</ul>
         <p style="margin-top:1rem;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)">Deliverables</p>
         <div class="deliverable-tags">${d.deliverables.map(x => `<span>${x}</span>`).join("")}</div>
         <p style="margin-top:1rem;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)">Ideal for</p>

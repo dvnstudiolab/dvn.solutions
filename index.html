@@ -49,17 +49,17 @@
         </div>
         <div class="card-grid card-grid-3" style="margin-top:3rem">
           <div class="card">
-            <div class="card-icon destructive">💎</div>
+            <div class="card-icon destructive" data-icon="layers"></div>
             <h3>Digital without Virtual</h3>
             <p>Beautiful brands and apps with no scalable environment to run them.</p>
           </div>
           <div class="card">
-            <div class="card-icon destructive">☁️</div>
+            <div class="card-icon destructive" data-icon="cloud"></div>
             <h3>Virtual without Network</h3>
             <p>Cloud deployed in isolation — no identity fabric, no trust boundaries.</p>
           </div>
           <div class="card">
-            <div class="card-icon destructive">🔗</div>
+            <div class="card-icon destructive" data-icon="network"></div>
             <h3>Network without Digital</h3>
             <p>Security programs with nothing worth protecting — controls without assets.</p>
           </div>
@@ -75,12 +75,12 @@
           <p>DVN isn't a web agency, a cloud shop, or a security consultancy. We design the digital layer, deploy it across modern virtual environments, and connect it through secure, intelligent networks.</p>
         </div>
         <ul class="check-list outcome-grid">
-          <li><span class="check-icon">✓</span> Digital assets — brand, websites, software, AI, and data — as one system</li>
-          <li><span class="check-icon">✓</span> Virtual environments — cloud, containers, CI/CD — scalable and automated</li>
-          <li><span class="check-icon">✓</span> Network connections — identity, trust, relationships, and AI collaboration</li>
-          <li><span class="check-icon">✓</span> Lifecycle delivery — build, deploy, secure, optimize, automate on repeat</li>
-          <li><span class="check-icon">✓</span> Sprint-based retainers — continuously shipping secure, optimized results</li>
-          <li><span class="check-icon">✓</span> One partner — not a dozen disconnected vendors</li>
+          <li><span class="check-icon" data-icon="check"></span> Digital assets — brand, websites, software, AI, and data — as one system</li>
+          <li><span class="check-icon" data-icon="check"></span> Virtual environments — cloud, containers, CI/CD — scalable and automated</li>
+          <li><span class="check-icon" data-icon="check"></span> Network connections — identity, trust, relationships, and AI collaboration</li>
+          <li><span class="check-icon" data-icon="check"></span> Lifecycle delivery — build, deploy, secure, optimize, automate on repeat</li>
+          <li><span class="check-icon" data-icon="check"></span> Sprint-based retainers — continuously shipping secure, optimized results</li>
+          <li><span class="check-icon" data-icon="check"></span> One partner — not a dozen disconnected vendors</li>
         </ul>
       </div>
     </section>
@@ -111,7 +111,7 @@
       <div class="container card-grid card-grid-2">
         <div class="card cta-card">
           <div>
-            <div class="card-icon accent">📊</div>
+            <div class="card-icon accent" data-icon="bar-chart"></div>
             <h3 style="margin-top:1rem;font-size:1.25rem">Not sure where you stand?</h3>
             <p style="margin-top:0.5rem">Take the Readiness Scorecard or get a one-week Infrastructure Snapshot across your stack.</p>
           </div>
@@ -122,7 +122,7 @@
         </div>
         <div class="card cta-card primary-bg">
           <div>
-            <div class="card-icon primary">✓</div>
+            <div class="card-icon primary" data-icon="check"></div>
             <h3 style="margin-top:1rem;font-size:1.25rem">Ready to get started?</h3>
             <p style="margin-top:0.5rem">Book a 30-minute discovery call. We'll map where you are and recommend the right starting point.</p>
           </div>
@@ -133,6 +133,7 @@
   </main>
 
   <footer class="site-footer" id="site-footer"></footer>
+  <script src="icons.js"></script>
   <script src="script.js"></script>
   <script>
     document.getElementById("pillars-preview").innerHTML = DVN_PILLARS.map((p) => `
@@ -145,7 +146,7 @@
 
     document.getElementById("lifecycle-preview").innerHTML = LIFECYCLE_PHASES.map((p) => `
       <div class="card">
-        <div class="card-icon accent">${p.icon}</div>
+        <div class="card-icon accent">${icon(p.icon)}</div>
         <h3>${p.name}</h3>
         <p style="font-size:0.8125rem;margin-top:0.5rem">${p.summary}</p>
         <div class="deliverable-tags" style="margin-top:0.75rem">${p.capabilities.map((c) => `<span>${c}</span>`).join("")}</div>

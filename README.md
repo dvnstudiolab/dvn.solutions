@@ -7,6 +7,7 @@ Static marketing site for [DVN Synthesis](https://github.com/dvnstudiolab/dvn.so
 ```
 index.html              ← Home page (required for GitHub Pages)
 style.css               ← All styles
+icons.js               ← Minimal stroke SVG icon system
 script.js               ← Nav, scorecard, booking form
 assets/dvn-logo.png     ← Logo
 about.html

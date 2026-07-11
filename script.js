@@ -54,7 +54,7 @@ const LIFECYCLE_PHASES = [
     slug: "build",
     name: "Build",
     summary: "Create digital assets — brand, websites, software, AI, and data.",
-    icon: "🏗️",
+    icon: "build",
     timeline: "Project-based",
     capabilities: ["Brand", "Websites", "Software", "AI", "Data"],
   },
@@ -62,7 +62,7 @@ const LIFECYCLE_PHASES = [
     slug: "deploy",
     name: "Deploy",
     summary: "Bring digital systems online across cloud, containers, networking, and CI/CD.",
-    icon: "🚀",
+    icon: "rocket",
     timeline: "Days to weeks",
     capabilities: ["Cloud", "Containers", "Networking", "CI/CD", "Edge"],
   },
@@ -70,7 +70,7 @@ const LIFECYCLE_PHASES = [
     slug: "secure",
     name: "Secure",
     summary: "Protect trust across identity, GRC, vulnerability management, and detection.",
-    icon: "🛡️",
+    icon: "shield",
     timeline: "1–4 weeks",
     capabilities: ["IAM", "GRC", "Vuln Mgmt", "Pen Testing", "SOC"],
   },
@@ -78,7 +78,7 @@ const LIFECYCLE_PHASES = [
     slug: "optimize",
     name: "Optimize",
     summary: "Improve continuously — SEO, performance, analytics, cost, and user experience.",
-    icon: "📈",
+    icon: "trending-up",
     timeline: "Ongoing",
     capabilities: ["SEO", "Performance", "Analytics", "Cost", "UX"],
   },
@@ -86,7 +86,7 @@ const LIFECYCLE_PHASES = [
     slug: "automate",
     name: "Automate",
     summary: "Scale intelligently with AI agents, workflows, and business operations automation.",
-    icon: "⚡",
+    icon: "zap",
     timeline: "Ongoing",
     capabilities: ["AI Agents", "Workflows", "Marketing", "Reporting", "Operations"],
   },
@@ -98,7 +98,7 @@ const DVN_PILLARS = [
     name: "Digital",
     tagline: "What you create.",
     summary: "The digital representation of your business — everything that creates, communicates, stores, or transforms information.",
-    icon: "💎",
+    icon: "gem",
     groups: [
       { label: "Brand", items: ["Brand Identity", "Design Systems", "UI/UX", "Motion Graphics"] },
       { label: "Marketing", items: ["Websites", "SEO", "CRM", "Marketing Automation", "Analytics"] },
@@ -111,7 +111,7 @@ const DVN_PILLARS = [
     name: "Virtual",
     tagline: "Where it operates.",
     summary: "The environments where digital systems live — scalable, repeatable, resilient, and automated through abstraction.",
-    icon: "☁️",
+    icon: "cloud",
     groups: [
       { label: "Cloud", items: ["AWS", "Azure", "GCP", "OCI"] },
       { label: "Virtualization", items: ["VMware", "Hyper-V", "Proxmox", "Containers"] },
@@ -124,7 +124,7 @@ const DVN_PILLARS = [
     name: "Network",
     tagline: "How everything connects.",
     summary: "Everything valuable moves through networks — of systems, trust, people, knowledge, and opportunity.",
-    icon: "🔗",
+    icon: "network",
     groups: [
       { label: "Security Networks", items: ["Identity", "Authentication", "PKI", "Zero Trust", "PAM"] },
       { label: "Business Networks", items: ["Customers", "Vendors", "Partners", "Supply Chains"] },
@@ -190,11 +190,11 @@ function renderHeader() {
       <div class="header-actions">
         <a href="book.html" class="btn btn-primary btn-sm">Book a Call</a>
       </div>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">☰</button>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">${icon("menu", 22)}</button>
     </div>
     <div class="mobile-nav" id="mobile-nav">
       <div class="mobile-nav-panel">
-        <button class="mobile-nav-close" id="menu-close" aria-label="Close menu">×</button>
+        <button class="mobile-nav-close" id="menu-close" aria-label="Close menu">${icon("close", 22)}</button>
         <a href="index.html" class="logo-link" style="margin-bottom:1rem">
           <img src="assets/dvn-logo.png" alt="" width="22" height="22"> DVN Synthesis
         </a>
@@ -411,6 +411,7 @@ function initInternForm() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initIcons();
   renderHeader();
   renderFooter();
   initScorecard();
