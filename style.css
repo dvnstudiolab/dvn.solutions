@@ -492,9 +492,7 @@ body.mobile-menu-open { overflow: hidden; }
   border-bottom: 1px solid var(--border);
 }
 @media (min-width: 640px) { .hero { padding-top: 5rem; } }
-.hero::before,
-.hero::after { display: none; }
-.hero-content { position: relative; max-width: 48rem; margin: 0 auto; }
+.hero-content { position: relative; z-index: 1; max-width: 48rem; margin: 0 auto; }
 .hero h1 {
   margin-top: 1.5rem;
   font-size: clamp(2rem, 5vw, 3.25rem);
@@ -1936,7 +1934,71 @@ body.mobile-menu-open { overflow: hidden; }
 
 /* ── Octave-style SimOps single-scroll sections ─────────────────── */
 
-/* ── Blueprint grid texture ───────────────────────────────────── */
+/* ── Subpage glow grid (all pages except homepage) ─────────────── */
+
+body:not(:has(.announce-bar)) {
+  position: relative;
+  isolation: isolate;
+}
+body:not(:has(.announce-bar))::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 70%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: 0.4;
+}
+body:not(:has(.announce-bar))::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 55% at 22% -10%, color-mix(in srgb, var(--primary) 26%, transparent), transparent 70%),
+    radial-gradient(ellipse 55% 50% at 82% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
+}
+
+body:not(:has(.announce-bar)) .hero,
+body:not(:has(.announce-bar)) .page-header {
+  background: transparent;
+  border-bottom-color: color-mix(in srgb, var(--border) 65%, transparent);
+}
+
+body:not(:has(.announce-bar)) .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 70%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+body:not(:has(.announce-bar)) .hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 22% -10%, color-mix(in srgb, var(--primary) 26%, transparent), transparent 70%),
+    radial-gradient(ellipse 55% 50% at 82% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
+  pointer-events: none;
+}
+
+body:not(:has(.announce-bar)) .section-alt {
+  background: color-mix(in srgb, var(--secondary) 88%, transparent);
+}
+
+body:not(:has(.announce-bar)) .product-saas .saas-hero {
+  background: transparent;
+}
+
+/* ── Blueprint grid texture (homepage only) ───────────────────── */
 
 .blueprint-grid {
   pointer-events: none;
@@ -1951,7 +2013,7 @@ body.mobile-menu-open { overflow: hidden; }
   background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
 }
 
-.product-saas {
+body:has(.announce-bar) .product-saas {
   position: relative;
   background-color: var(--background);
   background-image:
@@ -1964,7 +2026,7 @@ body.mobile-menu-open { overflow: hidden; }
   background-attachment: fixed;
 }
 
-.product-saas .saas-section.section-alt {
+body:has(.announce-bar) .product-saas .saas-section.section-alt {
   background-color: color-mix(in srgb, var(--secondary) 88%, #0a1a12);
   background-image:
     radial-gradient(circle at 64px 64px, rgba(46, 214, 121, 0.28) 1px, transparent 1px),
@@ -2426,8 +2488,8 @@ body.mobile-menu-open { overflow: hidden; }
   .form-row { grid-template-columns: 1fr; }
   .sales-fieldset { margin-bottom: 1.5rem; }
 
-  .product-saas,
-  .product-saas .saas-section.section-alt {
+  body:has(.announce-bar) .product-saas,
+  body:has(.announce-bar) .product-saas .saas-section.section-alt {
     background-attachment: scroll;
   }
 
