@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products — DVN Synthesis</title>
-  <meta name="description" content="DVN Secure Knowledge Fabric and DVN Security Transformation Studio — encrypted SecOps intelligence and organization-specific training from your trusted security knowledge.">
+  <meta name="description" content="DVN Secure Knowledge Fabric, Security Transformation Studio, and Digital Twin SimOps — knowledge, training, and continuous cyber simulation in one platform.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,14 +13,14 @@
     <section class="page-header">
       <div class="container section-heading center">
         <span class="eyebrow">DVN Security Platform</span>
-        <h2>Operational intelligence. Workforce readiness.</h2>
-        <p>Two integrated products — one encrypted knowledge layer for SecOps operations, one transformation layer that turns that knowledge into training, simulations, and multimedia.</p>
+        <h2>Knowledge. Training. Simulation.</h2>
+        <p>Three integrated products — organizational memory, workforce readiness, and continuous purple-team validation — reinforcing each other in a single cyber operating system.</p>
       </div>
     </section>
 
     <section class="section section-sm">
       <div class="container">
-        <div class="product-showcase-grid" id="product-showcase"></div>
+        <div class="product-showcase-grid product-showcase-grid-3" id="product-showcase"></div>
         <div class="learning-cycle" style="margin-top:3rem">
           <span>Knowledge</span><span class="learning-cycle-arrow">→</span>
           <span>Operational Use</span><span class="learning-cycle-arrow">→</span>
@@ -33,17 +33,12 @@
     </section>
 
     <section class="section section-alt">
-      <div class="container card-grid card-grid-2">
-        <div class="card">
-          <div class="card-icon accent" data-icon="network"></div>
-          <h3 style="margin-top:1rem">Knowledge & operations</h3>
-          <p style="margin-top:0.5rem;font-size:0.875rem;color:var(--muted-foreground);line-height:1.6">What does the organization know? Which sources are authoritative? How are assets, threats, controls, and procedures connected?</p>
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Platform vision</span>
+          <h2>One operating system for cyber defense</h2>
         </div>
-        <div class="card featured">
-          <div class="card-icon accent" data-icon="play"></div>
-          <h3 style="margin-top:1rem">Transformation & learning</h3>
-          <p style="margin-top:0.5rem;font-size:0.875rem;color:var(--muted-foreground);line-height:1.6">How should this knowledge be taught? How can employees practice safely? How can one source become multiple learning assets?</p>
-        </div>
+        <div class="card-grid card-grid-3" style="margin-top:2.5rem" id="platform-vision"></div>
       </div>
     </section>
   </main>
@@ -55,6 +50,16 @@
     document.addEventListener("DOMContentLoaded", () => {
       initIcons();
       initProductsOverview();
+      const vision = document.getElementById("platform-vision");
+      if (vision && typeof TWIN_PLATFORM !== "undefined") {
+        vision.innerHTML = TWIN_PLATFORM.map((p) => `
+          <div class="card ${p.featured ? "featured" : ""}">
+            <div class="card-icon accent">${icon(p.icon)}</div>
+            <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-foreground)">${p.product}</p>
+            <h3 style="margin-top:0.5rem"><a href="${p.href}">${p.name}</a></h3>
+            <p style="margin-top:0.75rem;font-size:0.875rem;color:var(--muted-foreground);line-height:1.65">${p.desc}</p>
+          </div>`).join("");
+      }
     });
   </script>
 </body>

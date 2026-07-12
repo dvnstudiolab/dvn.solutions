@@ -4,8 +4,99 @@ const SITE = {
   name: "DVN Synthesis",
   tagline: "Digital · Virtual · Network",
   motto: "Digital is what you create. Virtual is where it runs. Network is how it connects.",
+  lifecycle: "Build · Deploy · Secure · Optimize · Automate",
   email: "hello@dvnsecurity.com",
+  phone: "",
+  address: "Remote-first · United States",
 };
+
+const MAIN_NAV = [
+  {
+    label: "What We Do",
+    children: [
+      { label: "Solutions", href: "services.html" },
+      {
+        label: "Core Competencies",
+        children: [
+          { label: "Cloud & IT Infrastructure", href: "services.html#deploy" },
+          { label: "Cyber Security", href: "services.html#secure" },
+          { label: "Data Science & Analytics", href: "services.html#optimize" },
+          { label: "Software Engineering", href: "services.html#build" },
+        ],
+      },
+      {
+        label: "Products",
+        children: [
+          { label: "All Products", href: "products.html" },
+          { label: "Secure Knowledge Fabric", href: "secure-knowledge-fabric.html" },
+          { label: "Transformation Studio", href: "security-transformation-studio.html" },
+          { label: "Digital Twin SimOps", href: "digital-twin-simops.html" },
+        ],
+      },
+      { label: "Pricing", href: "pricing.html" },
+    ],
+  },
+  {
+    label: "Who We Serve",
+    children: [
+      { label: "Customers", href: "projects.html" },
+      { label: "Case Studies", href: "projects.html" },
+    ],
+  },
+  {
+    label: "Who We Are",
+    children: [
+      { label: "About Us", href: "about.html" },
+      { label: "Working at DVN", href: "careers.html" },
+      { label: "Search Openings", href: "careers.html#open-roles" },
+      { label: "Contact", href: "book.html" },
+    ],
+  },
+];
+
+const WHO_WE_SERVE = [
+  { num: "01", title: "Startups & SMBs", desc: "Launch digital products on secure, scalable infrastructure without stitching together vendors." },
+  { num: "02", title: "Growth Companies", desc: "Scale cloud, security, and automation as revenue and complexity accelerate." },
+  { num: "03", title: "Enterprise", desc: "Integrate Digital, Virtual, and Network across programs, compliance, and procurement." },
+  { num: "04", title: "Security & SecOps", desc: "Operational intelligence, knowledge fabric, and workforce readiness for security teams." },
+  { num: "05", title: "Technology Orgs", desc: "Engineering, platform, and product teams shipping on modern CI/CD retainers." },
+  { num: "06", title: "Regulated Industries", desc: "Healthcare, finance, and compliance-driven environments requiring governed delivery." },
+];
+
+const CORE_COMPETENCIES = [
+  {
+    title: "Cloud & IT Infrastructure",
+    slug: "cloud",
+    icon: "cloud",
+    href: "services.html#deploy",
+    imageClass: "comp-cloud",
+    summary: "Cloud provisioning, containers, networking, CI/CD, and virtualization — environments deployed with confidence and repeatability.",
+  },
+  {
+    title: "Cyber Security",
+    slug: "cyber",
+    icon: "shield",
+    href: "services.html#secure",
+    imageClass: "comp-cyber",
+    summary: "IAM, GRC, vulnerability management, detection engineering, SOC operations, and governed SecOps intelligence products.",
+  },
+  {
+    title: "Data Science & Analytics",
+    slug: "data",
+    icon: "bar-chart",
+    href: "services.html#optimize",
+    imageClass: "comp-data",
+    summary: "SEO, analytics, business intelligence, cost optimization, and data-driven decision support across your digital stack.",
+  },
+  {
+    title: "Software Engineering",
+    slug: "software",
+    icon: "code",
+    href: "services.html#build",
+    imageClass: "comp-software",
+    summary: "Websites, applications, AI agents, internal tools, and platform engineering — the digital assets your business runs on.",
+  },
+];
 
 const NAV = [
   { label: "Services", href: "services.html" },
@@ -24,11 +115,11 @@ const FOOTER_COLUMNS = [
       { label: "Products", href: "products.html" },
       { label: "Knowledge Fabric", href: "secure-knowledge-fabric.html" },
       { label: "Transformation Studio", href: "security-transformation-studio.html" },
-      { label: "Build", href: "services.html#build" },
-      { label: "Deploy", href: "services.html#deploy" },
-      { label: "Secure", href: "services.html#secure" },
-      { label: "Optimize", href: "services.html#optimize" },
-      { label: "Automate", href: "services.html#automate" },
+      { label: "Digital Twin SimOps", href: "digital-twin-simops.html" },
+      { label: "Cloud & IT Infrastructure", href: "services.html#deploy" },
+      { label: "Cyber Security", href: "services.html#secure" },
+      { label: "Data Science & Analytics", href: "services.html#optimize" },
+      { label: "Software Engineering", href: "services.html#build" },
       { label: "Pricing", href: "pricing.html" },
     ],
   },
@@ -180,7 +271,64 @@ function currentPage() {
 function isProductsSection(page) {
   return page === "products.html"
     || page === "secure-knowledge-fabric.html"
-    || page === "security-transformation-studio.html";
+    || page === "security-transformation-studio.html"
+    || page === "digital-twin-simops.html";
+}
+
+function navItemActive(href, page, productsActive) {
+  if (!href) return false;
+  const base = href.split("#")[0];
+  if (base === page) return true;
+  if (productsActive && base === "products.html") return true;
+  return false;
+}
+
+function renderNavDropdown(children, page, productsActive, depth = 0) {
+  return children.map((child) => {
+    if (child.children) {
+      return `<div class="nav-dropdown-group${depth ? " nested" : ""}">
+        <span class="nav-dropdown-label">${child.label}</span>
+        ${child.children.map((sub) =>
+          `<a href="${sub.href}" class="${navItemActive(sub.href, page, productsActive) ? "active" : ""}">${sub.label}</a>`
+        ).join("")}
+      </div>`;
+    }
+    return `<a href="${child.href}" class="${navItemActive(child.href, page, productsActive) ? "active" : ""}">${child.label}</a>`;
+  }).join("");
+}
+
+function renderMobileNavItems(items, page, productsActive) {
+  return items.map((item) => {
+    if (item.children) {
+      return `<div class="mobile-nav-group">
+        <button class="mobile-nav-group-toggle" type="button" aria-expanded="false">${item.label}${icon("chevron-down", 16)}</button>
+        <div class="mobile-nav-group-panel">
+          ${item.children.map((child) => {
+            if (child.children) {
+              return `<div class="mobile-nav-subgroup">
+                <span class="mobile-nav-subgroup-label">${child.label}</span>
+                ${child.children.map((sub) =>
+                  `<a href="${sub.href}">${sub.label}</a>`
+                ).join("")}
+              </div>`;
+            }
+            return `<a href="${child.href}">${child.label}</a>`;
+          }).join("")}
+        </div>
+      </div>`;
+    }
+    return `<a href="${item.href}">${item.label}</a>`;
+  }).join("");
+}
+
+function bindMobileNavGroups(root) {
+  root?.querySelectorAll(".mobile-nav-group-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const group = btn.closest(".mobile-nav-group");
+      const open = group?.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
 }
 
 function renderHeader() {
@@ -189,20 +337,54 @@ function renderHeader() {
   const page = currentPage();
   const productsActive = isProductsSection(page);
   el.innerHTML = `
-    <div class="brand-gradient-bar"></div>
-    <div class="container header-inner">
-      <a href="index.html" class="logo-link">
-        <img src="assets/dvn-logo.png" alt="DVN Synthesis logo" width="34" height="34">
-        <span>DVN <span class="muted">Synthesis</span></span>
-      </a>
-      <nav class="nav-desktop">
-        ${NAV.map((item) => `<a href="${item.href}" class="${page === item.href || (productsActive && item.href === "products.html") ? "active" : ""}">${item.label}</a>`).join("")}
-      </nav>
-      <div class="header-actions">
-        <a href="book.html" class="btn btn-primary btn-sm">Book a Call</a>
+    <div class="header-utility">
+      <div class="container header-utility-inner">
+        <a href="index.html" class="header-utility-brand">${SITE.name}</a>
+        <div class="header-utility-links">
+          <a href="careers.html" class="header-utility-link">Search Careers</a>
+          <a href="book.html" class="btn btn-header-cta">Contact Us</a>
+        </div>
       </div>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">${icon("menu", 22)}</button>
+    </div>
+    <div class="header-main">
+      <div class="container header-inner">
+        <a href="index.html" class="logo-link">
+          <img src="assets/dvn-logo.png" alt="DVN Synthesis logo" width="40" height="40">
+          <span class="logo-text">DVN <span class="logo-muted">Synthesis</span></span>
+        </a>
+        <nav class="nav-desktop" aria-label="Main">
+          ${MAIN_NAV.map((item) => `
+            <div class="nav-item has-dropdown">
+              <button class="nav-trigger" type="button" aria-expanded="false">${item.label}${icon("chevron-down", 14)}</button>
+              <div class="nav-dropdown">${renderNavDropdown(item.children, page, productsActive)}</div>
+            </div>`).join("")}
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">${icon("menu", 22)}</button>
+      </div>
     </div>`;
+
+  el.querySelectorAll(".nav-item.has-dropdown").forEach((item) => {
+    item.addEventListener("click", (e) => e.stopPropagation());
+    const trigger = item.querySelector(".nav-trigger");
+    trigger?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = item.classList.toggle("open");
+      trigger.setAttribute("aria-expanded", open ? "true" : "false");
+      el.querySelectorAll(".nav-item.has-dropdown").forEach((other) => {
+        if (other !== item) {
+          other.classList.remove("open");
+          other.querySelector(".nav-trigger")?.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  });
+
+  document.addEventListener("click", () => {
+    el.querySelectorAll(".nav-item.has-dropdown").forEach((item) => {
+      item.classList.remove("open");
+      item.querySelector(".nav-trigger")?.setAttribute("aria-expanded", "false");
+    });
+  });
 
   let mobileNav = document.getElementById("mobile-nav");
   if (!mobileNav) {
@@ -211,29 +393,32 @@ function renderHeader() {
     document.body.appendChild(mobileNav);
   }
   mobileNav.className = "mobile-nav";
-
   mobileNav.classList.remove("open");
 
   mobileNav.innerHTML = `
     <div class="mobile-nav-panel">
-      <button class="mobile-nav-close" id="menu-close" aria-label="Close menu">${icon("close", 22)}</button>
-      <a href="index.html" class="logo-link" style="margin-bottom:1rem">
-        <img src="assets/dvn-logo.png" alt="" width="22" height="22"> DVN Synthesis
-      </a>
-      <nav>
-        ${NAV.map((item) => `<a href="${item.href}">${item.label}</a>`).join("")}
-      </nav>
+      <div class="mobile-nav-top">
+        <a href="index.html" class="logo-link">
+          <img src="assets/dvn-logo.png" alt="" width="28" height="28">
+          <span class="logo-text">DVN Synthesis</span>
+        </a>
+        <button class="mobile-nav-close" id="menu-close" aria-label="Close menu">${icon("close", 22)}</button>
+      </div>
+      <nav class="mobile-nav-links">${renderMobileNavItems(MAIN_NAV, page, productsActive)}</nav>
       <div class="mobile-nav-actions">
-        <a href="book.html" class="btn btn-primary btn-block">Book a Call</a>
+        <a href="careers.html" class="btn btn-outline btn-block">Search Careers</a>
+        <a href="book.html" class="btn btn-primary btn-block">Contact Us</a>
       </div>
     </div>`;
+
+  bindMobileNavGroups(mobileNav);
 
   document.getElementById("menu-toggle")?.addEventListener("click", openMobileNav);
   document.getElementById("menu-close")?.addEventListener("click", closeMobileNav);
   mobileNav.addEventListener("click", (e) => {
     if (e.target === mobileNav) closeMobileNav();
   });
-  mobileNav.querySelectorAll("nav a").forEach((link) => {
+  mobileNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeMobileNav);
   });
 }
@@ -258,28 +443,99 @@ function renderFooter() {
   const el = document.getElementById("site-footer");
   if (!el) return;
   el.innerHTML = `
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="logo-link">
-            <img src="assets/dvn-logo.png" alt="" width="32" height="32">
-            <span>${SITE.name}</span>
+    <div class="footer-main">
+      <div class="container footer-main-grid">
+        <div class="footer-brand-block">
+          <a href="index.html" class="logo-link footer-logo">
+            <img src="assets/dvn-logo.png" alt="" width="36" height="36">
+            <span class="logo-text">${SITE.name}</span>
           </a>
-          <p>${SITE.motto} One partner across all three — build, deploy, secure, optimize, and automate.</p>
+          <p class="footer-tagline">${SITE.motto}</p>
+          <p class="footer-lifecycle">${SITE.lifecycle}</p>
+          <div class="footer-contact">
+            <p>${SITE.address}</p>
+            <p><a href="mailto:${SITE.email}">${SITE.email}</a></p>
+          </div>
         </div>
-        ${FOOTER_COLUMNS.map(
-          (col) => `
+        <div class="footer-links-grid">
           <div class="footer-col">
-            <h4>${col.title}</h4>
-            <ul>${col.links.map((l) => `<li><a href="${l.href}">${l.label}</a></li>`).join("")}</ul>
-          </div>`
-        ).join("")}
+            <h4>What We Do</h4>
+            <ul>
+              <li><a href="services.html">Solutions</a></li>
+              <li><a href="services.html#deploy">Cloud & IT Infrastructure</a></li>
+              <li><a href="services.html#secure">Cyber Security</a></li>
+              <li><a href="services.html#optimize">Data Science & Analytics</a></li>
+              <li><a href="services.html#build">Software Engineering</a></li>
+              <li><a href="products.html">Products</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Who We Are</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="careers.html">Working at DVN</a></li>
+              <li><a href="book.html">Contact</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Who We Serve</h4>
+            <ul>
+              <li><a href="projects.html">Customers</a></li>
+              <li><a href="projects.html">Case Studies</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Careers</h4>
+            <ul>
+              <li><a href="careers.html">Career Opportunities</a></li>
+              <li><a href="careers.html#internships">Internships</a></li>
+              <li><a href="intern-apply.html">Apply</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="footer-bottom">
+    </div>
+    <div class="footer-legal">
+      <div class="container footer-legal-inner">
         <p>&copy; ${new Date().getFullYear()} ${SITE.name}. All rights reserved.</p>
-        <p>Digital × Virtual × Network = Business Capability. Build → Deploy → Secure → Optimize → Automate.</p>
+        <div class="footer-legal-links">
+          <a href="about.html">About</a>
+          <a href="book.html">Contact</a>
+          <a href="careers.html">Careers</a>
+        </div>
       </div>
     </div>`;
+}
+
+function initHomepage() {
+  const motto = document.getElementById("lifecycle-motto");
+  if (motto) motto.textContent = SITE.lifecycle;
+
+  const serve = document.getElementById("who-we-serve");
+  if (serve) {
+    serve.innerHTML = WHO_WE_SERVE.map((item) => `
+      <article class="serve-item">
+        <span class="serve-num">${item.num}.</span>
+        <div>
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+        </div>
+      </article>`).join("");
+  }
+
+  const comps = document.getElementById("core-competencies-grid");
+  if (comps) {
+    comps.innerHTML = CORE_COMPETENCIES.map((c) => `
+      <a href="${c.href}" class="comp-card">
+        <div class="comp-card-media ${c.imageClass}">${icon(c.icon, 40)}</div>
+        <div class="comp-card-body">
+          <h3>${c.title}</h3>
+          <p>${c.summary}</p>
+          <span class="comp-card-link">Learn More ${icon("arrow-right", 16)}</span>
+        </div>
+      </a>`).join("");
+  }
 }
 
 function initScorecard() {
@@ -448,6 +704,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initIcons();
   renderHeader();
   renderFooter();
+  initHomepage();
   initScorecard();
   initBookingForm();
   initInternForm();

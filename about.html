@@ -1,113 +1,84 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — DVN Synthesis</title>
-  <meta name="description" content="DVN Synthesis — Digital is what you create. Virtual is where it runs. Network is how it connects.">
+  <meta name="description" content="DVN Synthesis — mission-ready infrastructure across Digital, Virtual, and Network. Who we serve, our core competencies, and careers.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header" id="site-header"></header>
+
   <main>
-    <section class="section">
-      <div class="container two-col">
-        <div class="about-logo-box">
-          <img src="assets/dvn-logo.png" alt="DVN Synthesis">
-        </div>
-        <div>
-          <span class="badge badge-outline">Digital · Virtual · Network</span>
-          <h1 style="margin-top:1rem;font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;letter-spacing:-0.02em;line-height:1.2">We help businesses go from idea to operating infrastructure — without stitching together a dozen vendors.</h1>
-          <p style="margin-top:1rem;color:var(--muted-foreground);line-height:1.7">DVN Synthesis was founded on a simple idea: Digital, Virtual, and Network aren't separate disciplines — they're how every successful organization actually works. We design the digital layer, deploy it across modern virtual environments, and connect it through secure, intelligent networks of systems, people, AI, and business relationships.</p>
-          <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:0.75rem">
-            <a href="book.html" class="btn btn-primary">Book a Call →</a>
-            <a href="services.html" class="btn btn-outline">View Services</a>
-          </div>
+    <section class="zps-hero">
+      <div class="zps-hero-media" aria-hidden="true">
+        <div class="zps-hero-overlay"></div>
+        <div class="zps-hero-grid"></div>
+      </div>
+      <div class="container zps-hero-inner">
+        <p class="zps-kicker">Digital · Virtual · Network</p>
+        <h1>Mission-Ready<br>Infrastructure</h1>
+        <p class="zps-hero-lead">In an evolving technology landscape, DVN Synthesis delivers integrated solutions with precision — keeping your organization at the forefront as we partner toward operational success across Digital, Virtual, and Network.</p>
+        <div class="zps-hero-actions">
+          <a href="book.html" class="btn btn-hero-primary">Book a Call</a>
+          <a href="#core-competencies" class="btn btn-hero-secondary">Core Competencies</a>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="zps-motto-band" aria-label="Company lifecycle">
       <div class="container">
-        <div class="section-heading center">
-          <span class="eyebrow">Mission & Vision</span>
-          <h2>Why DVN exists</h2>
-        </div>
-        <div class="card-grid card-grid-2" style="margin-top:3rem">
-          <div class="card">
-            <h3>Mission</h3>
-            <p style="margin-top:0.75rem;color:var(--muted-foreground);line-height:1.7">To build intelligent digital infrastructure that empowers organizations to create, connect, secure, and scale.</p>
-          </div>
-          <div class="card featured">
-            <h3>Vision</h3>
-            <p style="margin-top:0.75rem;color:var(--muted-foreground);line-height:1.7">A future where every business operates on intelligent infrastructure — designed digitally, deployed virtually, and connected through trusted networks of technology, people, and information.</p>
-          </div>
-        </div>
+        <p class="zps-motto-kicker">How we deliver</p>
+        <p class="zps-motto-text" id="lifecycle-motto"></p>
+        <p class="zps-motto-sub">One integrated lifecycle across Digital, Virtual, and Network — from idea to operating infrastructure.</p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="zps-serve">
+      <div class="container zps-serve-layout">
+        <div class="zps-serve-intro">
+          <img src="assets/dvn-logo.png" alt="" class="zps-serve-logo" width="72" height="72">
+          <p class="zps-section-label">who we serve</p>
+          <p>By leveraging domain-specific experience, in-depth technical knowledge, and a service-oriented approach, DVN Synthesis collaborates with organizations to build efficiencies, drive growth, and deliver on program objectives.</p>
+        </div>
+        <div class="zps-serve-list" id="who-we-serve"></div>
+      </div>
+    </section>
+
+    <section class="zps-competencies" id="core-competencies">
       <div class="container">
-        <div class="section-heading center">
-          <span class="eyebrow">Three dimensions</span>
-          <h2>Digital · Virtual · Network</h2>
-          <p>Not a cybersecurity consultancy. Not a web agency. A digital infrastructure company that integrates all three.</p>
+        <div class="zps-competencies-head">
+          <img src="assets/dvn-logo.png" alt="" class="zps-section-logo" width="56" height="56">
+          <p class="zps-section-label">what we do</p>
+          <h2>Core competencies</h2>
+          <p>Delivering solutions across four practice areas:</p>
         </div>
-        <div id="pillars-detail" style="margin-top:3rem"></div>
+        <div class="zps-comp-grid" id="core-competencies-grid"></div>
       </div>
     </section>
 
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-heading center">
-          <span class="eyebrow">The equation</span>
-          <h2>Digital × Virtual × Network = Business Capability</h2>
-        </div>
-        <div class="card-grid card-grid-3" style="margin-top:2.5rem">
-          <div class="card">
-            <p style="font-size:0.875rem;color:var(--muted-foreground);line-height:1.7">A great website without secure infrastructure is <strong style="color:var(--foreground)">fragile</strong>.</p>
-          </div>
-          <div class="card">
-            <p style="font-size:0.875rem;color:var(--muted-foreground);line-height:1.7">Powerful cloud without business processes is <strong style="color:var(--foreground)">underutilized</strong>.</p>
-          </div>
-          <div class="card">
-            <p style="font-size:0.875rem;color:var(--muted-foreground);line-height:1.7">Strong security without adoption creates <strong style="color:var(--foreground)">friction</strong>.</p>
+    <section class="zps-careers">
+      <div class="container zps-careers-layout">
+        <div class="zps-careers-copy">
+          <p class="zps-section-label light">Join DVN Synthesis</p>
+          <h2>Build intelligent infrastructure with us</h2>
+          <p>Committed to facilitating career growth while delivering results across Digital, Virtual, and Network — from engineering and cloud to cyber defense, automation, and client success.</p>
+          <p>Explore opportunities across cloud, cyber security, data analytics, and software engineering.</p>
+          <div class="zps-careers-actions">
+            <a href="careers.html#open-roles" class="btn btn-hero-primary">Search Careers</a>
+            <a href="careers.html#internships" class="btn btn-hero-secondary">Internship Program</a>
           </div>
         </div>
-        <p style="margin-top:2rem;text-align:center;max-width:36rem;margin-left:auto;margin-right:auto;color:var(--muted-foreground);line-height:1.7">The multiplier comes from integrating all three — not optimizing one in isolation.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container section-heading center" style="max-width:42rem;margin:0 auto">
-        <span class="eyebrow">How we deliver</span>
-        <h2>Lifecycle delivery in scoped sprints</h2>
-        <p>Build, Deploy, Secure, Optimize, Automate — delivered in scoped sprints on retainer so your infrastructure continuously integrates and improves.</p>
-        <a href="services.html" class="btn btn-outline" style="margin-top:1.5rem">View Services →</a>
+        <div class="zps-careers-visual" aria-hidden="true">
+          <img src="assets/dvn-logo.png" alt="" width="120" height="120">
+        </div>
       </div>
     </section>
   </main>
+
   <footer class="site-footer" id="site-footer"></footer>
   <script src="icons.js"></script>
   <script src="script.js"></script>
-  <script>
-    document.getElementById("pillars-detail").innerHTML = DVN_PILLARS.map((p) => `
-      <article class="dvn-pillar" id="pillar-${p.letter.toLowerCase()}">
-        <div class="dvn-pillar-header">
-          <span class="pillar-letter">${p.letter}</span>
-          <div>
-            <h3>${p.name} — ${p.tagline}</h3>
-            <p>${p.summary}</p>
-          </div>
-        </div>
-        <div class="card-grid card-grid-2" style="margin-top:1.5rem">
-          ${p.groups.map((g) => `
-            <div class="card">
-              <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--accent)">${g.label}</p>
-              <div class="deliverable-tags" style="margin-top:0.75rem">${g.items.map((i) => `<span>${i}</span>`).join("")}</div>
-            </div>`).join("")}
-        </div>
-      </article>`).join("");
-  </script>
 </body>
 </html>

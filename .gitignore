@@ -6,3 +6,4 @@ package-lock.json
 postcss.config.mjs
 tsconfig.json
 next.config.*
+node_modules/

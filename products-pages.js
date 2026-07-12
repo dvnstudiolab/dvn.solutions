@@ -31,6 +31,21 @@ const PRODUCT_OVERVIEW = [
     ],
     demoSubject: "Demo Request — DVN Security Transformation Studio",
   },
+  {
+    title: "Digital Twin SimOps",
+    href: "digital-twin-simops.html",
+    icon: "crosshair",
+    eyebrow: "Product #3 · Simulate",
+    summary: "Model your environment, run safe purple-team exercises, and continuously validate how people, tools, and controls respond under attack.",
+    highlights: [
+      "Digital twin of architecture, assets, and attack paths",
+      "Automated purple-team and resilience exercises",
+      "Real-time integration with knowledge graph and detections",
+      "Evidence, reporting, and executive-ready outcomes",
+      "Feeds simulations back into training and institutional knowledge",
+    ],
+    demoSubject: "Demo Request — DVN Digital Twin SimOps",
+  },
 ];
 
 const SCATTERED_SOURCES = [
@@ -440,8 +455,377 @@ function renderRoadmap(items) {
 
 function initProductsOverview() {
   setHtml("product-showcase", PRODUCT_OVERVIEW.map((product, index) =>
-    renderShowcaseCard(product, index === 1)
+    renderShowcaseCard(product, index === 2)
   ).join(""));
+}
+
+/* ── Home long-scroll content (Octave-style, company level) ─────── */
+
+const HOME_BENEFITS = [
+  {
+    title: "Reduce costs with smart workflows",
+    bullets: ["Cut costs", "Improve workflows", "Deliver measurable bottom line value", "Scale with confidence"],
+  },
+  {
+    title: "Gain real-time insights",
+    bullets: ["Single pane of glass", "Better, faster decisions", "Enhanced operational efficiency", "Ensure regulatory compliance"],
+  },
+  {
+    title: "Accelerate decision-making",
+    bullets: ["Central, organized documentation", "Smart tools to simplify processes", "Boost cross-departmental collaboration", "Enhance overall safety"],
+  },
+];
+
+const HOME_FEATURES = [
+  {
+    icon: "network",
+    title: "Real-time data integration",
+    caption: "Engineers and analysts monitor live telemetry across the environment.",
+    summary: "Seamlessly integrate real-time data across the entire asset lifecycle, enabling faster and more accurate decision-making. Improve operational efficiency, minimize costly downtime, and empower teams with instant access to critical information when they need it most.",
+    imageClass: "twin-feature-a",
+  },
+  {
+    icon: "users",
+    title: "Enhance collaboration between internal and external stakeholders",
+    caption: "Operators working across multiple displays in a control room.",
+    summary: "Facilitate seamless teamwork between internal teams and external stakeholders. Align goals, streamline communication and boost project success through collaborative workflows that keep everyone synchronized and working toward shared objectives.",
+    imageClass: "twin-feature-b",
+  },
+  {
+    icon: "layers",
+    title: "Advanced visualization tools for deeper asset insights",
+    caption: "Interactive models bring complex environments to life on any device.",
+    summary: "Deliver intuitive 2D/3D models and panoramic views that provide deeper insights into assets and engineering data. Empower teams with visual clarity that transforms complex information into actionable intelligence for better planning and execution.",
+    imageClass: "twin-feature-c",
+  },
+  {
+    icon: "cpu",
+    title: "Digital twin creation for predictive asset management",
+    caption: "A living digital twin mirrors the real environment for safe experimentation.",
+    summary: "Transform physical assets into virtual counterparts using digital twin technology. Improve monitoring, predict potential issues before they occur and support smarter, data-driven decisions that optimize asset performance and extend lifecycle value.",
+    imageClass: "twin-feature-d",
+  },
+  {
+    icon: "file",
+    title: "Document management and control for complete oversight",
+    caption: "Automated workflows route, review and approve documentation end to end.",
+    summary: "Control document routing, status tracking, redlining, markup and inconsistency checking. Efficiently manage transmittals, submittals, change requests and more through centralized workflows that ensure accuracy and compliance throughout projects.",
+    imageClass: "twin-feature-e",
+  },
+  {
+    icon: "radar",
+    title: "Design review and issue management for faster resolution",
+    caption: "Shared review workflows shorten cycles and centralize remediation.",
+    summary: "Transform engineering design reviews with integrated, shared workflows. Reduce review cycles, improve consistency and centralize compliance-driven changes for faster issue resolution. Streamline the entire review process from identification to completion.",
+    imageClass: "twin-feature-f",
+  },
+];
+
+const HOME_STATS = [
+  { value: "30%", label: "reduction in overall project costs" },
+  { value: "20%", label: "time savings in data collection & validation" },
+  { value: "30%", label: "cost & timeline reduction across projects" },
+];
+
+const HOME_PORTFOLIO = [
+  { name: "DVN Secure Knowledge Fabric", href: "secure-knowledge-fabric.html", desc: "Our information management solution centralizes engineering, operations and maintenance data, enabling digital twins and smarter decisions." },
+  { name: "DVN Synthesis Assistant", href: "secure-knowledge-fabric.html", desc: "The AI assistant for DVN Synthesis. Built on a contextualized data foundation. Delivering accurate, validated answers." },
+];
+
+const HOME_CASES = {
+  tabs: ["Global Bank", "Health System", "Public Sector"],
+  quote: "To me, it's completely game-changing to have all this information readily available on one screen.",
+  author: "Security Director",
+  role: "Global Financial Services",
+};
+
+const HOME_RESOURCES = [
+  { type: "Blog", title: "Building trust: Why DVN Synthesis is a game changer", desc: "DVN Synthesis transforms asset information management with trusted, connected data — reducing risk, improving handover and enabling smarter decisions." },
+  { type: "Webinar", title: "Transforming management of change in operations", desc: "Discover how DVN Synthesis and visualization tools are transforming management of change for safer, smarter operations." },
+  { type: "Blog", title: "AI-driven asset management: Transforming operations", desc: "Learn how DVN Synthesis uses AI to streamline operations, empower teams with real-time insights, automate data extraction and future-proof defense." },
+  { type: "Webinar", title: "Reimagining engineering and projects with DVN Synthesis", desc: "Explore how DVN Synthesis transforms engineering and project management by enhancing workflow efficiency, data integration and standards compliance." },
+];
+
+const HOME_FAQ = [
+  {
+    q: "What is DVN Synthesis?",
+    a: "DVN Synthesis is a cloud-native partner for excellence across Digital, Virtual, and Network. By contextualizing, visualizing and enhancing work processes across the entire lifecycle, we unlock more intelligent and autonomous \"digital projects\" and \"digital assets\" for your organization — bridging the physical and digital worlds.",
+  },
+  {
+    q: "Who will benefit from DVN Synthesis?",
+    a: "We serve organizations developing intricate infrastructure and security programs throughout their entire lifecycle — from planning, design and build to operations and maintenance. We're ideal for teams looking to unlock unprecedented value across facilities, projects and entire enterprises, such as Security & SecOps teams, asset owners and operators, and managed service partners.",
+  },
+  {
+    q: "What is DVN Synthesis used for?",
+    a: "Enriching lifecycle work processes, DVN Synthesis advances a best-in-class collection of core capabilities by connecting to a powerful digital backbone. It unites critical data to form a Digital Thread that drives transparency, efficiency, productivity and informed decision-making while reducing risk and cost — across data & information management, modelling & visualization, change management, work packaging, document control, and design review.",
+  },
+  {
+    q: "How does it relate to the Digital · Virtual · Network vision?",
+    a: "We collaborate with customers to accelerate their transformation journey toward a Smart Digital Reality — a virtual representation of physical assets, infused with real-time and time-series intelligence and context to automate processes and analytics, increasingly removing the need for manual intervention.",
+  },
+  {
+    q: "What are some of the benefits gained by working with DVN Synthesis?",
+    a: "We excel at optimizing the performance of projects and operations — delivering efficiency, productivity, quality and safety while improving fiscal and environmental sustainability. Benefits include project cost & schedule reduction, improved design quality, increased safety, immediate access to real-time data, operational efficiency and reduced maintenance costs.",
+  },
+  {
+    q: "Is DVN Synthesis cloud-native or on-premises?",
+    a: "DVN Synthesis is cloud-native by design and can also be deployed on-premises, air-gapped or in a private cloud — so your most sensitive environments stay under your control while still benefiting from real-time integration and collaboration.",
+  },
+];
+
+const HOME_RELATED = [
+  { name: "DVN Secure Knowledge Fabric", href: "secure-knowledge-fabric.html", desc: "Encrypted local RAG and a SecOps knowledge graph — the organization's memory for investigations and institutional intelligence." },
+  { name: "DVN Security Transformation Studio", href: "security-transformation-studio.html", desc: "Turns approved knowledge into training, tabletops, walkthroughs and tutorial content — built to scale with your teams." },
+  { name: "DVN Digital Twin SimOps", href: "digital-twin-simops.html", desc: "Models your environment, runs safe purple-team exercises and continuously validates how people, tools and controls respond." },
+  { name: "DVN Readiness Scorecard", href: "scorecard.html", desc: "Benchmark where you stand across your stack in minutes and see the highest-impact next steps." },
+];
+
+const HOME_INDUSTRIES = [
+  "Financial Services", "Healthcare", "Government & Public Sector", "Energy & Utilities",
+  "Technology", "Manufacturing", "Retail", "Education", "Other",
+];
+
+const HOME_INTERESTS = [
+  "Cloud & IT infrastructure", "Cyber security", "Data science & analytics",
+  "Software engineering", "Continuous security validation", "Digital twin of my environment",
+  "Not sure — help me decide",
+];
+
+function initHomeScroll() {
+  setHtml("home-benefits", HOME_BENEFITS.map((b) => `
+    <div class="benefit-card">
+      <h3>${b.title}</h3>
+      <ul>${b.bullets.map((item) => `<li><span class="check-icon">${icon("check", 16)}</span>${item}</li>`).join("")}</ul>
+    </div>`).join(""));
+
+  setHtml("home-features", HOME_FEATURES.map((f, i) => `
+    <article class="feature-row${i % 2 ? " reverse" : ""}">
+      <div class="feature-row-media ${f.imageClass}">
+        ${icon(f.icon, 48)}
+        <span class="feature-row-caption">${f.caption}</span>
+      </div>
+      <div class="feature-row-copy">
+        <h3>${f.title}</h3>
+        <p>${f.summary}</p>
+      </div>
+    </article>`).join(""));
+
+  setHtml("home-portfolio", HOME_PORTFOLIO.map((p) => `
+    <a href="${p.href}" class="portfolio-card">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <span class="comp-card-link">Learn More ${icon("arrow-right", 16)}</span>
+    </a>`).join(""));
+
+  setHtml("home-stats", HOME_STATS.map((s) => `
+    <div class="stat-card">
+      <div class="stat-card-value">${s.value}</div>
+      <p>${s.label}</p>
+    </div>`).join(""));
+
+  setHtml("home-cases", `
+    <div class="cases-tabs">${HOME_CASES.tabs.map((t, i) =>
+      `<button type="button" class="cases-tab${i === 0 ? " active" : ""}">${t}</button>`).join("")}</div>
+    <blockquote class="cases-quote">
+      <p>&ldquo;${HOME_CASES.quote}&rdquo;</p>
+      <footer><span class="cases-author">${HOME_CASES.author}</span> <span class="cases-sep">//</span> <span class="cases-role">${HOME_CASES.role}</span></footer>
+    </blockquote>`);
+
+  const caseTabs = document.querySelectorAll(".cases-tab");
+  caseTabs.forEach((tab) => tab.addEventListener("click", () => {
+    caseTabs.forEach((t) => t.classList.remove("active"));
+    tab.classList.add("active");
+  }));
+
+  setHtml("home-resources", HOME_RESOURCES.map((r) => `
+    <article class="resource-card">
+      <span class="resource-type">${r.type}</span>
+      <h3>${r.title}</h3>
+      <p>${r.desc}</p>
+    </article>`).join(""));
+
+  setHtml("home-faq", HOME_FAQ.map((f) => `
+    <div class="faq-item">
+      <button type="button" class="faq-question" aria-expanded="false">
+        <span>${f.q}</span>${icon("chevron-down", 18)}
+      </button>
+      <div class="faq-answer"><p>${f.a}</p></div>
+    </div>`).join(""));
+
+  document.querySelectorAll(".faq-question").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".faq-item");
+      const open = item.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+
+  setHtml("home-related", HOME_RELATED.map((p) => `
+    <a href="${p.href}" class="portfolio-card">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <span class="comp-card-link">Learn More ${icon("arrow-right", 16)}</span>
+    </a>`).join(""));
+
+  initSalesForm(HOME_INDUSTRIES, HOME_INTERESTS, "Talk to Sales — DVN Synthesis");
+}
+
+function initSalesForm(industries, interests, subject) {
+  const industry = document.getElementById("sales-industry");
+  if (industry) industry.innerHTML = `<option value="">Select</option>` +
+    industries.map((i) => `<option>${i}</option>`).join("");
+  const interest = document.getElementById("sales-interest");
+  if (interest) interest.innerHTML = `<option value="">Select</option>` +
+    interests.map((i) => `<option>${i}</option>`).join("");
+
+  const form = document.getElementById("sales-form");
+  if (!form) return;
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const body = [
+      `Industry: ${data.get("industry") || "—"}`,
+      `Interested in: ${data.get("interest") || "—"}`,
+      `Name: ${data.get("first") || ""} ${data.get("last") || ""}`.trim(),
+      `Work email: ${data.get("email") || "—"}`,
+      `Phone: ${data.get("phone") || "—"}`,
+      `Company: ${data.get("company") || "—"}`,
+      `Country: ${data.get("country") || "—"}`,
+      "",
+      `${data.get("comments") || ""}`,
+    ].join("\n");
+    window.location.href = `mailto:hello@dvnsecurity.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}
+
+/* ── Digital Twin SimOps product page (security-specific) ───────── */
+
+const TWIN_BENEFITS = [
+  {
+    title: "Reduce costs with continuous validation",
+    bullets: ["Cut reliance on one-off assessments", "Improve purple-team workflows", "Deliver measurable resilience value", "Scale validation with confidence"],
+  },
+  {
+    title: "Gain real-time security insights",
+    bullets: ["Single pane for architecture and risk", "Better, faster security decisions", "Enhanced operational efficiency", "Support regulatory and audit evidence"],
+  },
+  {
+    title: "Accelerate decision-making",
+    bullets: ["Central, organized security documentation", "Smart tools to simplify exercises", "Boost cross-team collaboration", "Enhance overall safety and readiness"],
+  },
+];
+
+const TWIN_FEATURES = [
+  {
+    icon: "network",
+    title: "Real-time environment integration",
+    summary: "Seamlessly integrate architecture, assets, identities, telemetry, and controls across the security lifecycle — enabling faster, more accurate decisions when assessing attack paths and response readiness.",
+    imageClass: "twin-feature-a",
+  },
+  {
+    icon: "users",
+    title: "Enhance collaboration between stakeholders",
+    summary: "Facilitate seamless teamwork between SecOps, engineering, GRC, and leadership. Align goals, streamline communications, and boost program success through collaborative purple-team workflows.",
+    imageClass: "twin-feature-b",
+  },
+  {
+    icon: "layers",
+    title: "Advanced visualization for deeper asset insights",
+    summary: "Deliver intuitive architecture models, attack-path views, and coverage maps that transform complex security data into actionable intelligence for planning and executive reporting.",
+    imageClass: "twin-feature-c",
+  },
+  {
+    icon: "cpu",
+    title: "Digital twin creation for predictive security",
+    summary: "Transform physical and virtual environments into security digital twins. Improve monitoring, predict exploitation outcomes, and support smarter decisions that optimize detection and response.",
+    imageClass: "twin-feature-d",
+  },
+  {
+    icon: "file",
+    title: "Evidence and document management",
+    summary: "Control exercise routing, findings status, evidence packages, and remediation tracking through centralized workflows that ensure accuracy, auditability, and compliance throughout engagements.",
+    imageClass: "twin-feature-e",
+  },
+  {
+    icon: "radar",
+    title: "Purple-team orchestration and issue management",
+    summary: "Transform security exercises with integrated, shared workflows. Reduce cycle times, improve consistency, and centralize compliance-driven remediation from identification to validation.",
+    imageClass: "twin-feature-f",
+  },
+];
+
+const TWIN_STATS = [
+  { value: "40%", label: "reduction in repeat assessment effort" },
+  { value: "30%", label: "faster detection and control validation" },
+  { value: "50%", label: "improvement in executive-ready reporting speed" },
+];
+
+const TWIN_PORTFOLIO = [
+  { name: "Secure Knowledge Fabric", href: "secure-knowledge-fabric.html", desc: "Encrypted local RAG and SecOps knowledge graph — the memory layer for investigations and institutional intelligence." },
+  { name: "Security Transformation Studio", href: "security-transformation-studio.html", desc: "Transforms approved knowledge into training, simulations, and multimedia learning assets." },
+];
+
+const TWIN_PLATFORM = [
+  {
+    product: "Product #1",
+    name: "Secure Knowledge Fabric",
+    href: "secure-knowledge-fabric.html",
+    desc: "Provides the organization's memory — SOPs, detections, architecture, and institutional knowledge that inform every simulation.",
+    icon: "network",
+  },
+  {
+    product: "Product #2",
+    name: "Security Transformation Studio",
+    href: "security-transformation-studio.html",
+    desc: "Turns knowledge into training, tabletop exercises, walkthroughs, flashcards, and documentation generated from real operations.",
+    icon: "play",
+  },
+  {
+    product: "Product #3",
+    name: "Digital Twin SimOps",
+    href: "digital-twin-simops.html",
+    desc: "Models the environment, continuously assesses it, attacks safely, and improves defenses through automated purple-team exercises.",
+    icon: "crosshair",
+    featured: true,
+  },
+];
+
+function initDigitalTwinSimopsPage() {
+  setHtml("twin-benefits", TWIN_BENEFITS.map((b) => `
+    <div class="benefit-card">
+      <h3>${b.title}</h3>
+      <ul>${b.bullets.map((item) => `<li><span class="check-icon">${icon("check", 16)}</span>${item}</li>`).join("")}</ul>
+    </div>`).join(""));
+
+  setHtml("twin-features", TWIN_FEATURES.map((f, i) => `
+    <article class="feature-row${i % 2 ? " reverse" : ""}">
+      <div class="feature-row-media ${f.imageClass}">${icon(f.icon, 48)}</div>
+      <div class="feature-row-copy">
+        <h3>${f.title}</h3>
+        <p>${f.summary}</p>
+      </div>
+    </article>`).join(""));
+
+  setHtml("twin-stats", TWIN_STATS.map((s) => `
+    <div class="stat-card">
+      <div class="stat-card-value">${s.value}</div>
+      <p>${s.label}</p>
+    </div>`).join(""));
+
+  setHtml("twin-platform", TWIN_PLATFORM.map((p) => `
+    <div class="card ${p.featured ? "featured" : ""}">
+      <div class="card-icon accent">${icon(p.icon)}</div>
+      <p class="product-phase-label">${p.product}</p>
+      <h3 style="margin-top:0.5rem"><a href="${p.href}">${p.name}</a></h3>
+      <p style="margin-top:0.75rem;font-size:0.875rem;color:var(--muted-foreground);line-height:1.65">${p.desc}</p>
+    </div>`).join(""));
+
+  setHtml("twin-portfolio", TWIN_PORTFOLIO.map((p) => `
+    <a href="${p.href}" class="portfolio-card">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <span class="comp-card-link">Learn More ${icon("arrow-right", 16)}</span>
+    </a>`).join(""));
 }
 
 function initKnowledgeFabricPage() {
