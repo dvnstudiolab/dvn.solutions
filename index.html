@@ -18,8 +18,15 @@
 
   <main class="product-detail product-saas">
     <!-- Hero -->
-    <section class="saas-hero">
-      <div class="container">
+    <section class="saas-hero saas-hero-video">
+      <div class="saas-hero-media" aria-hidden="true">
+        <video autoplay muted loop playsinline poster="assets/dvn-logo.png">
+          <source src="assets/hero-bg.mp4" type="video/mp4">
+        </video>
+        <div class="saas-hero-overlay"></div>
+        <div class="blueprint-grid blueprint-grid-hero" aria-hidden="true"></div>
+      </div>
+      <div class="container saas-hero-content">
         <p class="eyebrow">Digital · Virtual · Network</p>
         <h1>Build. Deploy. Secure. Optimize. Automate.</h1>
         <p class="saas-hero-lead">DVN Synthesis bridges physical and digital worlds with a cloud-native platform. Simplify engineering, operations and security with real-time data and analytics — from websites and cloud infrastructure to AI, cybersecurity, and internal operations.</p>
@@ -29,6 +36,23 @@
         </div>
       </div>
     </section>
+
+    <!-- Sticky section nav -->
+    <nav class="section-nav" id="section-nav" aria-label="Section navigation">
+      <div class="container section-nav-inner">
+        <div class="section-nav-links">
+          <a href="#overview" class="section-nav-link">Overview</a>
+          <a href="#benefits" class="section-nav-link">Benefits</a>
+          <a href="#features" class="section-nav-link">Features</a>
+          <a href="#portfolio" class="section-nav-link">Portfolio</a>
+          <a href="#statistics" class="section-nav-link">Statistics</a>
+          <a href="#case-studies" class="section-nav-link">Case studies</a>
+          <a href="#resources" class="section-nav-link">Resources</a>
+          <a href="#support" class="section-nav-link">Support</a>
+        </div>
+        <a href="#talk-to-sales" class="section-nav-cta">Talk to an expert</a>
+      </div>
+    </nav>
 
     <!-- Overview -->
     <section class="saas-section" id="overview">
@@ -43,7 +67,7 @@
       <div class="container">
         <p class="saas-section-label">Benefits</p>
         <h2>Boost data access, drive operational efficiency</h2>
-        <p style="max-width:46rem;margin-top:1rem;color:var(--muted-foreground);line-height:1.75">DVN Synthesis, a cloud-native platform, bridges physical and digital worlds as the core of our Digital · Virtual · Network vision. Integrating real-time data and analytics simplifies operations, enhances execution and empowers teams. It reduces downtime, boosts safety and drives efficiency, enabling smarter decisions and greater productivity.</p>
+        <p class="saas-prose">DVN Synthesis, a cloud-native platform, bridges physical and digital worlds as the core of our Digital · Virtual · Network vision. Integrating real-time data and analytics simplifies operations, enhances execution and empowers teams. It reduces downtime, boosts safety and drives efficiency, enabling smarter decisions and greater productivity.</p>
         <div class="benefit-grid" id="home-benefits"></div>
       </div>
     </section>
@@ -62,7 +86,7 @@
       <div class="container">
         <p class="saas-section-label">Portfolio</p>
         <h2>Explore the DVN portfolio</h2>
-        <p style="max-width:46rem;margin-top:1rem;color:var(--muted-foreground);line-height:1.75">The DVN portfolio offers a range of products that transform asset information management with cloud-native and on-premise solutions. Centralize your engineering, operations and maintenance data with real-time integration and enhanced collaboration. Choose the capabilities you need and create a system that works the way you do.</p>
+        <p class="saas-prose">The DVN portfolio offers a range of products that transform asset information management with cloud-native and on-premise solutions. Centralize your engineering, operations and maintenance data with real-time integration and enhanced collaboration. Choose the capabilities you need and create a system that works the way you do.</p>
         <div class="portfolio-grid" id="home-portfolio" style="margin-top:2rem"></div>
         <div style="margin-top:1.5rem"><a href="products.html" class="btn btn-outline">View all products →</a></div>
       </div>

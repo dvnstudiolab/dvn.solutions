@@ -482,42 +482,48 @@ const HOME_FEATURES = [
     title: "Real-time data integration",
     caption: "Engineers and analysts monitor live telemetry across the environment.",
     summary: "Seamlessly integrate real-time data across the entire asset lifecycle, enabling faster and more accurate decision-making. Improve operational efficiency, minimize costly downtime, and empower teams with instant access to critical information when they need it most.",
-    imageClass: "twin-feature-a",
+    image: "assets/stock-technicians-hardhat.jpg",
+    imageAlt: "Technician in hard hat and PPE inspecting industrial equipment",
   },
   {
     icon: "users",
     title: "Enhance collaboration between internal and external stakeholders",
     caption: "Operators working across multiple displays in a control room.",
     summary: "Facilitate seamless teamwork between internal teams and external stakeholders. Align goals, streamline communication and boost project success through collaborative workflows that keep everyone synchronized and working toward shared objectives.",
-    imageClass: "twin-feature-b",
+    image: "assets/stock-control-room.jpg",
+    imageAlt: "Security operators monitoring multiple screens in a control room",
   },
   {
     icon: "layers",
     title: "Advanced visualization tools for deeper asset insights",
     caption: "Interactive models bring complex environments to life on any device.",
     summary: "Deliver intuitive 2D/3D models and panoramic views that provide deeper insights into assets and engineering data. Empower teams with visual clarity that transforms complex information into actionable intelligence for better planning and execution.",
-    imageClass: "twin-feature-c",
+    image: "assets/stock-ipad-blueprints.jpg",
+    imageAlt: "Engineer reviewing diagrams and schematics on a tablet",
   },
   {
     icon: "cpu",
     title: "Digital twin creation for predictive asset management",
     caption: "A living digital twin mirrors the real environment for safe experimentation.",
     summary: "Transform physical assets into virtual counterparts using digital twin technology. Improve monitoring, predict potential issues before they occur and support smarter, data-driven decisions that optimize asset performance and extend lifecycle value.",
-    imageClass: "twin-feature-d",
+    image: "assets/stock-ppe-workers.jpg",
+    imageAlt: "PPE-equipped workers coordinating on an industrial site",
   },
   {
     icon: "file",
     title: "Document management and control for complete oversight",
     caption: "Automated workflows route, review and approve documentation end to end.",
     summary: "Control document routing, status tracking, redlining, markup and inconsistency checking. Efficiently manage transmittals, submittals, change requests and more through centralized workflows that ensure accuracy and compliance throughout projects.",
-    imageClass: "twin-feature-e",
+    image: "assets/stock-computers-analytics.jpg",
+    imageAlt: "Analyst reviewing operational data on computer displays",
   },
   {
     icon: "radar",
     title: "Design review and issue management for faster resolution",
     caption: "Shared review workflows shorten cycles and centralize remediation.",
     summary: "Transform engineering design reviews with integrated, shared workflows. Reduce review cycles, improve consistency and centralize compliance-driven changes for faster issue resolution. Streamline the entire review process from identification to completion.",
-    imageClass: "twin-feature-f",
+    image: "assets/stock-tablet-review.jpg",
+    imageAlt: "Technicians collaborating over plans and tablets on site",
   },
 ];
 
@@ -600,8 +606,8 @@ function initHomeScroll() {
 
   setHtml("home-features", HOME_FEATURES.map((f, i) => `
     <article class="feature-row${i % 2 ? " reverse" : ""}">
-      <div class="feature-row-media ${f.imageClass}">
-        ${icon(f.icon, 48)}
+      <div class="feature-row-media">
+        <img src="${f.image}" alt="${f.imageAlt}" loading="lazy" width="1400" height="875">
         <span class="feature-row-caption">${f.caption}</span>
       </div>
       <div class="feature-row-copy">
@@ -624,12 +630,19 @@ function initHomeScroll() {
     </div>`).join(""));
 
   setHtml("home-cases", `
-    <div class="cases-tabs">${HOME_CASES.tabs.map((t, i) =>
-      `<button type="button" class="cases-tab${i === 0 ? " active" : ""}">${t}</button>`).join("")}</div>
-    <blockquote class="cases-quote">
-      <p>&ldquo;${HOME_CASES.quote}&rdquo;</p>
-      <footer><span class="cases-author">${HOME_CASES.author}</span> <span class="cases-sep">//</span> <span class="cases-role">${HOME_CASES.role}</span></footer>
-    </blockquote>`);
+    <div class="cases-layout">
+      <div class="cases-visual">
+        <img src="assets/stock-case-study.jpg" alt="Operations team reviewing live systems on workstation displays" loading="lazy" width="1400" height="875">
+      </div>
+      <div class="cases-copy">
+        <div class="cases-tabs">${HOME_CASES.tabs.map((t, i) =>
+          `<button type="button" class="cases-tab${i === 0 ? " active" : ""}">${t}</button>`).join("")}</div>
+        <blockquote class="cases-quote">
+          <p>&ldquo;${HOME_CASES.quote}&rdquo;</p>
+          <footer><span class="cases-author">${HOME_CASES.author}</span> <span class="cases-sep">//</span> <span class="cases-role">${HOME_CASES.role}</span></footer>
+        </blockquote>
+      </div>
+    </div>`);
 
   const caseTabs = document.querySelectorAll(".cases-tab");
   caseTabs.forEach((tab) => tab.addEventListener("click", () => {
@@ -668,6 +681,28 @@ function initHomeScroll() {
     </a>`).join(""));
 
   initSalesForm(HOME_INDUSTRIES, HOME_INTERESTS, "Talk to Sales — DVN Synthesis");
+  initSectionNav();
+}
+
+function initSectionNav() {
+  const nav = document.getElementById("section-nav");
+  if (!nav) return;
+  const links = Array.from(nav.querySelectorAll(".section-nav-link"));
+  const sections = links
+    .map((l) => document.querySelector(l.getAttribute("href")))
+    .filter(Boolean);
+  if (!sections.length) return;
+
+  const offset = 160;
+  function onScroll() {
+    let activeIndex = 0;
+    sections.forEach((sec, i) => {
+      if (sec.getBoundingClientRect().top <= offset) activeIndex = i;
+    });
+    links.forEach((l, i) => l.classList.toggle("active", i === activeIndex));
+  }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
 }
 
 function initSalesForm(industries, interests, subject) {

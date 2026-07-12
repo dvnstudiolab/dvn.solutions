@@ -12,44 +12,48 @@ const SITE = {
 
 const MAIN_NAV = [
   {
-    label: "What We Do",
+    label: "Products",
     children: [
-      { label: "Solutions", href: "services.html" },
-      {
-        label: "Core Competencies",
-        children: [
-          { label: "Cloud & IT Infrastructure", href: "services.html#deploy" },
-          { label: "Cyber Security", href: "services.html#secure" },
-          { label: "Data Science & Analytics", href: "services.html#optimize" },
-          { label: "Software Engineering", href: "services.html#build" },
-        ],
-      },
-      {
-        label: "Products",
-        children: [
-          { label: "All Products", href: "products.html" },
-          { label: "Secure Knowledge Fabric", href: "secure-knowledge-fabric.html" },
-          { label: "Transformation Studio", href: "security-transformation-studio.html" },
-          { label: "Digital Twin SimOps", href: "digital-twin-simops.html" },
-        ],
-      },
+      { label: "All Products", href: "products.html" },
+      { label: "Secure Knowledge Fabric", href: "secure-knowledge-fabric.html" },
+      { label: "Security Transformation Studio", href: "security-transformation-studio.html" },
+      { label: "Digital Twin SimOps", href: "digital-twin-simops.html" },
       { label: "Pricing", href: "pricing.html" },
     ],
   },
   {
-    label: "Who We Serve",
+    label: "Industries",
     children: [
+      {
+        label: "Who We Serve",
+        children: [
+          { label: "Startups & SMBs", href: "projects.html" },
+          { label: "Enterprise", href: "projects.html" },
+          { label: "Security & SecOps", href: "projects.html" },
+          { label: "Regulated Industries", href: "projects.html" },
+        ],
+      },
       { label: "Customers", href: "projects.html" },
       { label: "Case Studies", href: "projects.html" },
     ],
   },
   {
-    label: "Who We Are",
+    label: "Learn",
+    children: [
+      { label: "The Library", href: "library.html" },
+      { label: "Resources", href: "resources.html" },
+      { label: "Readiness Scorecard", href: "scorecard.html" },
+      { label: "Infrastructure Snapshot", href: "security-snapshot.html" },
+    ],
+  },
+  { label: "Support", href: "book.html" },
+  {
+    label: "About",
     children: [
       { label: "About Us", href: "about.html" },
+      { label: "Solutions & Services", href: "services.html" },
       { label: "Working at DVN", href: "careers.html" },
       { label: "Search Openings", href: "careers.html#open-roles" },
-      { label: "Contact", href: "book.html" },
     ],
   },
 ];
@@ -337,15 +341,6 @@ function renderHeader() {
   const page = currentPage();
   const productsActive = isProductsSection(page);
   el.innerHTML = `
-    <div class="header-utility">
-      <div class="container header-utility-inner">
-        <a href="index.html" class="header-utility-brand">${SITE.name}</a>
-        <div class="header-utility-links">
-          <a href="careers.html" class="header-utility-link">Search Careers</a>
-          <a href="book.html" class="btn btn-header-cta">Contact Us</a>
-        </div>
-      </div>
-    </div>
     <div class="header-main">
       <div class="container header-inner">
         <a href="index.html" class="logo-link">
@@ -353,12 +348,20 @@ function renderHeader() {
           <span class="logo-text">DVN <span class="logo-muted">Synthesis</span></span>
         </a>
         <nav class="nav-desktop" aria-label="Main">
-          ${MAIN_NAV.map((item) => `
+          ${MAIN_NAV.map((item) => item.children ? `
             <div class="nav-item has-dropdown">
               <button class="nav-trigger" type="button" aria-expanded="false">${item.label}${icon("chevron-down", 14)}</button>
               <div class="nav-dropdown">${renderNavDropdown(item.children, page, productsActive)}</div>
+            </div>` : `
+            <div class="nav-item">
+              <a href="${item.href}" class="nav-trigger nav-link${navItemActive(item.href, page, productsActive) ? " active" : ""}">${item.label}</a>
             </div>`).join("")}
         </nav>
+        <div class="header-actions">
+          <button class="header-icon-btn" type="button" aria-label="Search" onclick="location.href='careers.html#open-roles'">${icon("search", 18)}</button>
+          <span class="header-lang">${icon("globe", 16)} EN</span>
+          <a href="book.html" class="btn btn-header-cta">Contact Us</a>
+        </div>
         <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">${icon("menu", 22)}</button>
       </div>
     </div>`;
