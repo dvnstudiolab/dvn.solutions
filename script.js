@@ -345,7 +345,7 @@ function renderHeader() {
       <div class="container header-inner">
         <a href="index.html" class="logo-link">
           <img src="assets/dvn-logo.png" alt="DVN Synthesis logo" width="40" height="40">
-          <span class="logo-text">DVN <span class="logo-muted">Synthesis</span></span>
+          <span class="logo-text">Synthesis</span>
         </a>
         <nav class="nav-desktop" aria-label="Main">
           ${MAIN_NAV.map((item) => item.children ? `
@@ -403,8 +403,8 @@ function renderHeader() {
     <div class="mobile-nav-panel">
       <div class="mobile-nav-top">
         <a href="index.html" class="logo-link">
-          <img src="assets/dvn-logo.png" alt="" width="28" height="28">
-          <span class="logo-text">DVN Synthesis</span>
+          <img src="assets/dvn-logo.png" alt="" width="40" height="40">
+          <span class="logo-text">Synthesis</span>
         </a>
         <button class="mobile-nav-close" id="menu-close" aria-label="Close menu">${icon("close", 22)}</button>
       </div>
@@ -452,7 +452,7 @@ function renderFooter() {
         <div class="footer-brand-block">
           <a href="index.html" class="logo-link footer-logo">
             <img src="assets/dvn-logo.png" alt="" width="36" height="36">
-            <span class="logo-text">${SITE.name}</span>
+            <span class="logo-text">Synthesis</span>
           </a>
           <p class="footer-tagline">${SITE.motto}</p>
           <p class="footer-lifecycle">${SITE.lifecycle}</p>
