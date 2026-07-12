@@ -693,16 +693,33 @@ function initSectionNav() {
     .filter(Boolean);
   if (!sections.length) return;
 
-  const offset = 160;
+  function scrollOffset() {
+    const header = document.querySelector(".site-header");
+    return (header?.offsetHeight || 72) + (nav.offsetHeight || 56) + 12;
+  }
+
   function onScroll() {
+    const offset = scrollOffset();
     let activeIndex = 0;
     sections.forEach((sec, i) => {
       if (sec.getBoundingClientRect().top <= offset) activeIndex = i;
     });
     links.forEach((l, i) => l.classList.toggle("active", i === activeIndex));
   }
+
+  links.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - scrollOffset() + 4;
+      window.scrollTo({ top, behavior: "smooth" });
+    });
+  });
+
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
 }
 
 function initSalesForm(industries, interests, subject) {

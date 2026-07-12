@@ -39,6 +39,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -242,7 +243,6 @@ main { flex: 1; }
 .nav-dropdown-group a:hover,
 .nav-dropdown-group a.active { color: var(--primary); background: var(--secondary); }
 
-.header-actions { display: none; }
 .menu-toggle {
   display: flex;
   align-items: center;
@@ -2208,3 +2208,171 @@ body.mobile-menu-open { overflow: hidden; }
   color: var(--muted-foreground);
 }
 .sales-consent input { margin-top: 0.2rem; accent-color: var(--accent); }
+
+.product-saas .hero-actions {
+  justify-content: flex-start;
+  margin-top: 1.5rem;
+}
+@media (min-width: 640px) {
+  .product-saas .hero-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+  .product-saas .hero-actions .btn { width: auto; }
+}
+
+/* ── Mobile optimizations ───────────────────────────────────────── */
+
+.header-mobile-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+}
+.header-mobile-cta:hover { background: rgba(255, 255, 255, 0.08); }
+@media (min-width: 1100px) { .header-mobile-cta { display: none; } }
+
+@media (max-width: 1099px) {
+  .header-inner { min-height: 3.75rem; }
+  .logo-link img { width: 32px; height: 32px; }
+  .logo-text { font-size: 1rem; }
+  .menu-toggle { margin-left: 0; }
+}
+
+@media (max-width: 767px) {
+  .container { padding: 0 0.875rem; }
+  .product-saas .container {
+    max-width: 100%;
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+  }
+
+  .announce-inner {
+    min-height: auto;
+    padding: 0.5rem 0;
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+
+  .saas-section { padding: 3rem 0; }
+  .saas-section .container.narrow { max-width: 100%; }
+
+  .saas-hero-video .saas-hero-content {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .product-saas .saas-hero h1 {
+    font-size: clamp(1.75rem, 9vw, 2.35rem);
+    line-height: 1.15;
+  }
+  .product-saas .saas-hero-lead {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .product-saas .hero-actions {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 0.625rem;
+    margin-top: 1.25rem !important;
+  }
+  .product-saas .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section-nav {
+    top: 3.75rem;
+  }
+  .section-nav-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    min-height: auto;
+    padding: 0.5rem 0;
+  }
+  .section-nav-links {
+    width: 100%;
+    gap: 0;
+    padding-bottom: 0.125rem;
+    -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+  .section-nav-link {
+    padding: 0.875rem 0.625rem;
+    font-size: 0.8125rem;
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+  }
+  .section-nav-cta {
+    align-self: stretch;
+    text-align: center;
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .product-saas .saas-section[id] { scroll-margin-top: 7.5rem; }
+
+  .benefit-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .benefit-card { padding: 1.25rem; }
+
+  .feature-rows { gap: 2rem; }
+  .feature-row { gap: 1.25rem; }
+  .feature-row-media { aspect-ratio: 4 / 3; }
+
+  .stat-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .stat-card { padding: 1.5rem 1.25rem; }
+
+  .portfolio-grid,
+  .resource-grid,
+  .related-grid { grid-template-columns: 1fr; }
+
+  .cases-layout { gap: 1.5rem; }
+  .cases-quote p { font-size: 1.125rem; }
+
+  .support-band {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+  .support-band .btn { width: 100%; justify-content: center; }
+
+  .faq-question {
+    font-size: 0.9375rem;
+    padding: 1rem 0;
+    min-height: 2.75rem;
+  }
+
+  .form-row { grid-template-columns: 1fr; }
+  .sales-fieldset { margin-bottom: 1.5rem; }
+
+  .product-saas,
+  .product-saas .saas-section.section-alt {
+    background-attachment: scroll;
+  }
+
+  .mobile-nav-panel { width: 100%; max-width: 100%; }
+  .mobile-nav-links > a,
+  .mobile-nav-group-toggle,
+  .mobile-nav-group-panel > a {
+    min-height: 2.75rem;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 479px) {
+  .logo-text .logo-muted { display: none; }
+  .logo-text::after { content: " Synthesis"; }
+  .header-mobile-cta { padding: 0.4rem 0.6rem; font-size: 0.6875rem; }
+  .cases-tabs { gap: 0.375rem; }
+  .cases-tab { font-size: 0.75rem; padding: 0.45rem 0.75rem; }
+}

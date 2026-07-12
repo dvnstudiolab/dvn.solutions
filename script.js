@@ -362,6 +362,7 @@ function renderHeader() {
           <span class="header-lang">${icon("globe", 16)} EN</span>
           <a href="book.html" class="btn btn-header-cta">Contact Us</a>
         </div>
+        <a href="book.html" class="header-mobile-cta">Contact</a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">${icon("menu", 22)}</button>
       </div>
     </div>`;
