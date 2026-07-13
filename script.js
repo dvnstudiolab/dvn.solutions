@@ -532,7 +532,7 @@ function initHomepage() {
   if (comps) {
     comps.innerHTML = CORE_COMPETENCIES.map((c) => `
       <a href="${c.href}" class="comp-card">
-        <div class="comp-card-media ${c.imageClass}">${icon(c.icon, 40)}</div>
+        <div class="comp-card-media ${c.imageClass}">${icon(c.icon, 96)}</div>
         <div class="comp-card-body">
           <h3>${c.title}</h3>
           <p>${c.summary}</p>
