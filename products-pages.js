@@ -538,12 +538,26 @@ const HOME_PORTFOLIO = [
   { name: "DVN Synthesis Assistant", href: "secure-knowledge-fabric.html", desc: "The AI assistant for DVN Synthesis. Built on a contextualized data foundation. Delivering accurate, validated answers." },
 ];
 
-const HOME_CASES = {
-  tabs: ["Global Bank", "Health System", "Public Sector"],
-  quote: "To me, it's completely game-changing to have all this information readily available on one screen.",
-  author: "Security Director",
-  role: "Global Financial Services",
-};
+const HOME_CASES = [
+  {
+    tab: "SaaS",
+    title: "SaaS startup: full-stack launch from zero to production",
+    summary: "Built the marketing site, deployed AWS infrastructure with CI/CD, configured IAM and monitoring, and automated onboarding workflows — all in 6 weeks.",
+    tags: ["Build", "Deploy", "Automate"],
+  },
+  {
+    tab: "Healthcare",
+    title: "Healthcare platform: closing identity gaps before a HIPAA audit",
+    summary: "Identified 14 stale privileged accounts and missing MFA on a legacy VPN. Delivered a prioritized remediation plan executed in 3 weeks ahead of an external audit.",
+    tags: ["Secure", "IAM"],
+  },
+  {
+    tab: "E-commerce",
+    title: "E-commerce brand: SEO and cloud cost optimization",
+    summary: "Improved organic traffic 45% through technical SEO fixes and reduced AWS spend 30% through rightsizing and reserved instance planning.",
+    tags: ["Optimize", "SEO"],
+  },
+];
 
 const HOME_RESOURCES = [
   { type: "Blog", title: "Building trust: Why DVN Synthesis is a game changer", desc: "DVN Synthesis transforms asset information management with trusted, connected data — reducing risk, improving handover and enabling smarter decisions." },
@@ -597,6 +611,15 @@ const HOME_INTERESTS = [
   "Not sure — help me decide",
 ];
 
+function renderHomeCaseStudy(caseStudy) {
+  return `
+    <div class="cases-detail">
+      <h3>${caseStudy.title}</h3>
+      <p>${caseStudy.summary}</p>
+      <div class="deliverable-tags">${caseStudy.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
+    </div>`;
+}
+
 function initHomeScroll() {
   setHtml("home-benefits", HOME_BENEFITS.map((b) => `
     <div class="benefit-card">
@@ -635,19 +658,21 @@ function initHomeScroll() {
         <img src="assets/stock-case-study.jpg" alt="Operations team reviewing live systems on workstation displays" loading="lazy" width="1400" height="875">
       </div>
       <div class="cases-copy">
-        <div class="cases-tabs">${HOME_CASES.tabs.map((t, i) =>
-          `<button type="button" class="cases-tab${i === 0 ? " active" : ""}">${t}</button>`).join("")}</div>
-        <blockquote class="cases-quote">
-          <p>&ldquo;${HOME_CASES.quote}&rdquo;</p>
-          <footer><span class="cases-author">${HOME_CASES.author}</span> <span class="cases-sep">//</span> <span class="cases-role">${HOME_CASES.role}</span></footer>
-        </blockquote>
+        <div class="cases-tabs">${HOME_CASES.map((c, i) =>
+          `<button type="button" class="cases-tab${i === 0 ? " active" : ""}" data-case-index="${i}">${c.tab}</button>`).join("")}</div>
+        <div id="home-case-detail">${renderHomeCaseStudy(HOME_CASES[0])}</div>
       </div>
     </div>`);
 
   const caseTabs = document.querySelectorAll(".cases-tab");
+  const caseDetail = document.getElementById("home-case-detail");
   caseTabs.forEach((tab) => tab.addEventListener("click", () => {
     caseTabs.forEach((t) => t.classList.remove("active"));
     tab.classList.add("active");
+    const index = Number(tab.dataset.caseIndex);
+    if (caseDetail && HOME_CASES[index]) {
+      caseDetail.innerHTML = renderHomeCaseStudy(HOME_CASES[index]);
+    }
   }));
 
   setHtml("home-resources", HOME_RESOURCES.map((r) => `

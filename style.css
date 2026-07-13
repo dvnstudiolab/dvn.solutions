@@ -2210,6 +2210,18 @@ body:has(.announce-bar) .product-saas .saas-section.section-alt {
   background: var(--accent);
   border-color: var(--accent);
 }
+.cases-detail h3 {
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--foreground);
+}
+.cases-detail p {
+  margin-top: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+.cases-detail .deliverable-tags { margin-top: 1.25rem; }
 .cases-quote {
   border-left: 3px solid var(--accent);
   padding: 0.5rem 0 0.5rem 1.5rem;
