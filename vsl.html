@@ -76,7 +76,7 @@
         const email = document.getElementById("vsl-email").value;
         const company = document.getElementById("vsl-company").value;
         const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCompany: ${company}\nAnswers: ${JSON.stringify(answers, null, 2)}`);
-        window.location.href = `mailto:hello@dvnsecurity.com?subject=${encodeURIComponent("VSL lead")}&body=${body}`;
+        window.location.href = `mailto:info@dvnsynthesis.com?subject=${encodeURIComponent("VSL lead")}&body=${body}`;
         document.getElementById("vsl-app").innerHTML = `
           <div class="card" style="text-align:center;border-color:color-mix(in srgb,var(--accent) 40%,transparent)">
             <h3 style="font-size:1.25rem">You're a great fit for a discovery call.</h3>

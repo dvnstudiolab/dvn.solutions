@@ -76,7 +76,7 @@ Update the email in `script.js`:
 
 ```js
 const SITE = {
-  email: "hello@dvnsecurity.com",
+  email: "info@dvnsynthesis.com",
 };
 ```
 

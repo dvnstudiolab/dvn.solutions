@@ -5,7 +5,7 @@ const SITE = {
   tagline: "Digital · Virtual · Network",
   motto: "Digital is what you create. Virtual is where it runs. Network is how it connects.",
   lifecycle: "Build · Deploy · Secure · Optimize · Automate",
-  email: "hello@dvnsecurity.com",
+  email: "info@dvnsynthesis.com",
   phone: "",
   address: "Remote-first · United States",
 };

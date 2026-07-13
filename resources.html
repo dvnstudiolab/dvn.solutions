@@ -77,7 +77,7 @@
       const fd = new FormData(e.target);
       const subject = encodeURIComponent(`Resource download: ${activeResource.title}`);
       const body = encodeURIComponent(`Name: ${fd.get("name")}\nEmail: ${fd.get("email")}\nCompany: ${fd.get("company")}\nResource: ${activeResource.slug}`);
-      window.open(`mailto:hello@dvnsecurity.com?subject=${subject}&body=${body}`);
+      window.open(`mailto:info@dvnsynthesis.com?subject=${subject}&body=${body}`);
       const a = document.createElement("a");
       a.href = activeResource.file;
       a.download = "";

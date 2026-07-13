@@ -358,7 +358,7 @@ function renderProductNav(navId, items) {
 }
 
 function renderShowcaseCard(product, featured) {
-  const demoHref = `mailto:hello@dvnsecurity.com?subject=${encodeURIComponent(product.demoSubject)}`;
+  const demoHref = `mailto:info@dvnsynthesis.com?subject=${encodeURIComponent(product.demoSubject)}`;
   const highlights = product.highlights.map((h) =>
     `<li style="display:flex;gap:0.5rem;font-size:0.875rem;color:var(--muted-foreground);margin-top:0.625rem"><span class="check-icon">${icon("check", 16)}</span>${h}</li>`
   ).join("");
@@ -746,7 +746,7 @@ function initSalesForm(industries, interests, subject) {
       "",
       `${data.get("comments") || ""}`,
     ].join("\n");
-    window.location.href = `mailto:hello@dvnsecurity.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:info@dvnsynthesis.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
 
